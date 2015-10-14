@@ -26,8 +26,8 @@ public class AlgMain {
 			showInputDialog("Digite o nome do hóspede");
 		hospede.tipoHospedagem[i] = JOptionPane.
 			showInputDialog("Digite o tipo da reserva");
-		hospede.qtdeDiaria[i] = JOptionPane.
-			showInputDialog("Digite a quantidade de diárias");
+		hospede.qtdeDiaria[i] = Integer.parseInt(JOptionPane.
+			showInputDialog("Digite a quantidade de diárias"));
 		}
 		
 
