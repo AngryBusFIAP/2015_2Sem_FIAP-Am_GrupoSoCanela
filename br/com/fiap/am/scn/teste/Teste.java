@@ -1,8 +1,8 @@
-package br.com.fiap.alg;
+package br.com.fiap.am.scn.teste;
 
 import javax.swing.JOptionPane;
 
-public class AlgMain {
+public class Teste {
 	static String[] NomeServ = {"Água Mineral", "Cerveja", 
 								"Vinho", "Whisky Red Label",
 								"Suco", "Vodka Absolut"};

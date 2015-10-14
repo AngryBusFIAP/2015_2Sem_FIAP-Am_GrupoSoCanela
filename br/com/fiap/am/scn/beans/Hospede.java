@@ -1,4 +1,4 @@
-package br.com.fiap.alg;
+package br.com.fiap.am.scn.beans;
 
 public class Hospede {
 	public String[] nomeHospede;
