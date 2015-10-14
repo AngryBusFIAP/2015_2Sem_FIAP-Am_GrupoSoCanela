@@ -1,3 +1,7 @@
+import br.com.fiap.am.scn.beans.Cliente;
+import br.com.fiap.am.scn.beans.Funcionario;
+import br.com.fiap.am.scn.beans.Reserva;
+
 import java.Consumo;
 
 public class Hospedagem {
@@ -18,7 +22,7 @@ public class Hospedagem {
 
 	private Cliente cliente;
 
-	public string gerarCodigo() {
+	public String gerarCodigo() {
 		return null;
 	}
 
