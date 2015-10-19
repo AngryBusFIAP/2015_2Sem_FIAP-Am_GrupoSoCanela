@@ -2,6 +2,8 @@ package br.com.fiap.am.scn.beans;
 
 public class Pessoa {
 
+	private int id;
+
 	private String nome;
 
 	private Endereco endereco;
@@ -16,14 +18,23 @@ public class Pessoa {
 		super();
 	}
 
-	public Pessoa(String nome, Endereco endereco, String dtNascimento,
+	public Pessoa(int id, String nome, Endereco endereco, String dtNascimento,
 			Long cpf, String rg) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.dtNascimento = dtNascimento;
 		this.cpf = cpf;
 		this.rg = rg;
+	}
+
+	public int getId(){
+		return id;
+	}
+
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public String getNome() {
