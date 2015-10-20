@@ -2,25 +2,39 @@ package br.com.fiap.am.scn.beans;
 
 public class Consumo {
 
+	private int codConsumo;
+	
 	private int codHospedagem;
 
-	private Servico servicos;
-
-	private Produto produto;
-
-	private Double valor;
+	private TipoServico tipoServicos;
+	
+	private int codPessoa;
+	
+	private String dtConsumo;
+	
+	private int qtdeConsumo;
 
 	public Consumo() {
 		super();
 	}
 
-	public Consumo(int codHospedagem, Servico servicos, Produto produto,
-			Double valor) {
+	public Consumo(int codConsumo, int codHospedagem, TipoServico tipoServicos,
+			int codPessoa, String dtConsumo, int qtdeConsumo) {
 		super();
+		this.codConsumo = codConsumo;
 		this.codHospedagem = codHospedagem;
-		this.servicos = servicos;
-		this.produto = produto;
-		this.valor = valor;
+		this.tipoServicos = tipoServicos;
+		this.codPessoa = codPessoa;
+		this.dtConsumo = dtConsumo;
+		this.qtdeConsumo = qtdeConsumo;
+	}
+
+	public int getCodConsumo() {
+		return codConsumo;
+	}
+
+	public void setCodConsumo(int codConsumo) {
+		this.codConsumo = codConsumo;
 	}
 
 	public int getCodHospedagem() {
@@ -31,29 +45,36 @@ public class Consumo {
 		this.codHospedagem = codHospedagem;
 	}
 
-	public Servico getServicos() {
-		return servicos;
+	public TipoServico getTipoServicos() {
+		return tipoServicos;
 	}
 
-	public void setServicos(Servico servicos) {
-		this.servicos = servicos;
+	public void setTipoServicos(TipoServico tipoServicos) {
+		this.tipoServicos = tipoServicos;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public int getCodPessoa() {
+		return codPessoa;
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setCodPessoa(int codPessoa) {
+		this.codPessoa = codPessoa;
 	}
 
-	public Double getValor() {
-		return valor;
+	public String getDtConsumo() {
+		return dtConsumo;
 	}
 
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public void setDtConsumo(String dtConsumo) {
+		this.dtConsumo = dtConsumo;
 	}
 
+	public int getQtdeConsumo() {
+		return qtdeConsumo;
+	}
+
+	public void setQtdeConsumo(int qtdeConsumo) {
+		this.qtdeConsumo = qtdeConsumo;
+	}
 	
 }

@@ -8,20 +8,21 @@ public class Quarto {
 
 	private TipoQuarto tipo;
 
-	private int qtde;
+	private int capacidade;
 
 	public Quarto() {
 		super();
 	}
 
-	public Quarto(int numero, int andar, TipoQuarto tipo, int qtde) {
+	public Quarto(int numero, int andar, TipoQuarto tipo, int capacidade) {
 		super();
 		this.numero = numero;
 		this.andar = andar;
 		this.tipo = tipo;
-		this.qtde = qtde;
+		this.capacidade = capacidade;
 	}
 
+	
 	public int getNumero() {
 		return numero;
 	}
@@ -46,13 +47,12 @@ public class Quarto {
 		this.tipo = tipo;
 	}
 
-	public int getQtde() {
-		return qtde;
+	public int getCapacidade() {
+		return capacidade;
 	}
 
-	public void setQtde(int qtde) {
-		this.qtde = qtde;
+	public void setCapacidade(int capacidade) {
+		this.capacidade = capacidade;
 	}
 
-	
 }

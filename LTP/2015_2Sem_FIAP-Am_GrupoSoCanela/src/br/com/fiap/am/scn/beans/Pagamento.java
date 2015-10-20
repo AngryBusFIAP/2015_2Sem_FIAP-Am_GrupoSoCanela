@@ -6,20 +6,20 @@ public class Pagamento {
 
 	private String dtPagamento;
 
-	private FormaPagamento tipo;
+	private FormaPagamento formaPagamento;
 
-	private Double valor;
+	private double valor;
 
 	public Pagamento() {
 		super();
 	}
 
 	public Pagamento(int codHospedagem, String dtPagamento,
-			FormaPagamento tipo, Double valor) {
+			FormaPagamento formaPagamento, double valor) {
 		super();
 		this.codHospedagem = codHospedagem;
 		this.dtPagamento = dtPagamento;
-		this.tipo = tipo;
+		this.formaPagamento = formaPagamento;
 		this.valor = valor;
 	}
 
@@ -39,15 +39,15 @@ public class Pagamento {
 		this.dtPagamento = dtPagamento;
 	}
 
-	public FormaPagamento getTipo() {
-		return tipo;
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
 	}
 
-	public void setTipo(FormaPagamento tipo) {
-		this.tipo = tipo;
+	public void setTipo(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
 	}
 
-	public Double getValor() {
+	public double getValor() {
 		return valor;
 	}
 

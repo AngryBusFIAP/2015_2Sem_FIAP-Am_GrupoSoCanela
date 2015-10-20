@@ -2,11 +2,13 @@ package br.com.fiap.am.scn.beans;
 
 public class Reserva {
 
-	private int nroReserva;
+	private int codReserva;
+	
+	private String dtSolicitacao;
+	
+	private String dtInicioReserva;
 
-	private String dtEntrada;
-
-	private String dtSaida;
+	private String dtFimReserva;
 
 	private int qtdHospedesCrianca;
 
@@ -17,6 +19,8 @@ public class Reserva {
 	private Double valor;
 
 	private Cliente cliente;
+	
+	private Funcionario funcionario; 
 
 	private String status;
 
@@ -24,43 +28,55 @@ public class Reserva {
 		super();
 	}
 
-	public Reserva(int nroReserva, String dtEntrada, String dtSaida,
+	public Reserva(int codReserva, String dtSolicitacao,
+			String dtInicioReserva, String dtFimReserva,
 			int qtdHospedesCrianca, int qtdHospedesAdulto, Quarto quarto,
-			Double valor, Cliente cliente, String status) {
+			Double valor, Cliente cliente, Funcionario funcionario,
+			String status) {
 		super();
-		this.nroReserva = nroReserva;
-		this.dtEntrada = dtEntrada;
-		this.dtSaida = dtSaida;
+		this.codReserva = codReserva;
+		this.dtSolicitacao = dtSolicitacao;
+		this.dtInicioReserva = dtInicioReserva;
+		this.dtFimReserva = dtFimReserva;
 		this.qtdHospedesCrianca = qtdHospedesCrianca;
 		this.qtdHospedesAdulto = qtdHospedesAdulto;
 		this.quarto = quarto;
 		this.valor = valor;
 		this.cliente = cliente;
+		this.funcionario = funcionario;
 		this.status = status;
 	}
 
-	public int getNroReserva() {
-		return nroReserva;
+	public int getCodReserva() {
+		return codReserva;
 	}
 
-	public void setNroReserva(int nroReserva) {
-		this.nroReserva = nroReserva;
+	public void setCodReserva(int codReserva) {
+		this.codReserva = codReserva;
 	}
 
-	public String getDtEntrada() {
-		return dtEntrada;
+	public String getDtSolicitacao() {
+		return dtSolicitacao;
 	}
 
-	public void setDtEntrada(String dtEntrada) {
-		this.dtEntrada = dtEntrada;
+	public void setDtSolicitacao(String dtSolicitacao) {
+		this.dtSolicitacao = dtSolicitacao;
 	}
 
-	public String getDtSaida() {
-		return dtSaida;
+	public String getDtInicioReserva() {
+		return dtInicioReserva;
 	}
 
-	public void setDtSaida(String dtSaida) {
-		this.dtSaida = dtSaida;
+	public void setDtInicioReserva(String dtInicioReserva) {
+		this.dtInicioReserva = dtInicioReserva;
+	}
+
+	public String getDtFimReserva() {
+		return dtFimReserva;
+	}
+
+	public void setDtFimReserva(String dtFimReserva) {
+		this.dtFimReserva = dtFimReserva;
 	}
 
 	public int getQtdHospedesCrianca() {
@@ -103,6 +119,14 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -112,5 +136,5 @@ public class Reserva {
 	}
 	
 	
-
 }
+	

@@ -3,10 +3,10 @@ package br.com.fiap.am.scn.dao;
 import br.com.fiap.am.scn.beans.Pessoa;
 import br.com.fiap.am.scn.connection.ConexaoFactory;
 import br.com.fiap.am.scn.exception.Excecao;
-import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class PessoaDAO {
 
-    private Connection c;
+    private Connection c = null;
 
     public PessoaDAO() throws Excecao {
         try{
@@ -24,29 +24,30 @@ public class PessoaDAO {
         }
     }
 
-    public String cadastrarPessoa(Pessoa pe) throws Excecao {
+    public String cadastrarPessoa(Pessoa pessoa) throws Excecao {
 
         String sql = "INSERT INTO T_AM_SCN_PESSOA VALUES (SQ_SCN_PESSOA.NEXTVAL, ?)";
 
         try {
             PreparedStatement ps = c.prepareStatement(sql);
-            ps.setString(1, pe.getNome());
+            ps.setString(1, pessoa.getNome());
             ps.execute();
-            ps.close();
+
         } catch (SQLException e) {
             throw new Excecao(e);
+
         }
         return "Pessoa cadastrada com sucesso";
     }
 
-    public String atualizarPessoa(int idPessoa, String nmPessoa) throws Excecao{
+    public String atualizarPessoa(int idPessoa, String nomePessoa) throws Excecao{
 
         String sql = "UPDATE T_AM_SCN_PESSOA SET CD_PESSOA = ? WHERE CD_PESSOA = ?";
 
         try{
             PreparedStatement ps = c.prepareStatement(sql);
             ps.setInt(1, idPessoa);
-            ps.setString(2, nmPessoa);
+            ps.setString(2, nomePessoa);
             ps.executeUpdate();
             ps.close();
             return "Registro atualizado com sucesso";
@@ -69,4 +70,39 @@ public class PessoaDAO {
             throw new Excecao(e);
         }
     }
+
+    public Pessoa getPessoa(int codigo) throws Excecao{
+        Pessoa pessoa = new Pessoa();
+        try {
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM T_AM_SCN_PESSOA WHERE CD_PESSOA = ?");
+            ps.setInt(1, codigo);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                pessoa.setNome(rs.getString("NM_PESSOA"));
+            }
+            rs.close();
+            ps.close();
+        }catch(SQLException e){
+            throw new Excecao(e);
+        }
+        return pessoa;
+    }
+
+    public Pessoa getPessoaNome(String pNome) throws Excecao{
+        Pessoa pessoa = new Pessoa();
+        try {
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM T_AM_SCN_PESSOA WHERE NM_PESSOA = ?");
+            ps.setString(1, pNome);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                pessoa.setNome(rs.getString("NM_PESSOA"));
+            }
+            rs.close();
+            ps.close();
+        }catch(SQLException e){
+            throw new Excecao(e);
+        }
+        return pessoa;
+    }
+
 }

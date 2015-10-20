@@ -4,37 +4,49 @@ public class Hospedagem {
 
 	private int codHospedagem;
 
-	private Reserva reserva;
-
-	private Funcionario funcionario;
-
 	private String dtHospedagem;
 
 	private String hrHospedagem;
+	
+	private String dtEntrada;
+	
+	private String dtSaida;
+	
+	private double percDesconto;
 
 	private Consumo consumo;
 
-	private String dtSaida;
-
 	private Cliente cliente;
+
+	private Reserva reserva;
+	
+	private Quarto quarto;
+
+	private Funcionario funcionario;
 	
 	public Hospedagem() {
 		super();
 	}
 	
-	public Hospedagem(int codHospedagem, Reserva reserva,
-			Funcionario funcionario, String dtHospedagem, String hrHospedagem,
-			Consumo consumo, String dtSaida, Cliente cliente) {
+	public Hospedagem(int codHospedagem, String dtHospedagem,
+			String hrHospedagem, String dtEntrada, String dtSaida,
+			double percDesconto, Consumo consumo, Cliente cliente,
+			Reserva reserva, Quarto quarto, Funcionario funcionario) {
 		super();
 		this.codHospedagem = codHospedagem;
-		this.reserva = reserva;
-		this.funcionario = funcionario;
 		this.dtHospedagem = dtHospedagem;
 		this.hrHospedagem = hrHospedagem;
-		this.consumo = consumo;
+		this.dtEntrada = dtEntrada;
 		this.dtSaida = dtSaida;
+		this.percDesconto = percDesconto;
+		this.consumo = consumo;
 		this.cliente = cliente;
+		this.reserva = reserva;
+		this.quarto = quarto;
+		this.funcionario = funcionario;
 	}
+
+	
 
 	public int getCodHospedagem() {
 		return codHospedagem;
@@ -42,22 +54,6 @@ public class Hospedagem {
 
 	public void setCodHospedagem(int codHospedagem) {
 		this.codHospedagem = codHospedagem;
-	}
-
-	public Reserva getReserva() {
-		return reserva;
-	}
-
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
-	}
-
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
 	}
 
 	public String getDtHospedagem() {
@@ -76,12 +72,12 @@ public class Hospedagem {
 		this.hrHospedagem = hrHospedagem;
 	}
 
-	public Consumo getConsumo() {
-		return consumo;
+	public String getDtEntrada() {
+		return dtEntrada;
 	}
 
-	public void setConsumo(Consumo consumo) {
-		this.consumo = consumo;
+	public void setDtEntrada(String dtEntrada) {
+		this.dtEntrada = dtEntrada;
 	}
 
 	public String getDtSaida() {
@@ -92,12 +88,52 @@ public class Hospedagem {
 		this.dtSaida = dtSaida;
 	}
 
+	public double getPercDesconto() {
+		return percDesconto;
+	}
+
+	public void setPercDesconto(double percDesconto) {
+		this.percDesconto = percDesconto;
+	}
+
+	public Consumo getConsumo() {
+		return consumo;
+	}
+
+	public void setConsumo(Consumo consumo) {
+		this.consumo = consumo;
+	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+
+	public Quarto getQuarto() {
+		return quarto;
+	}
+
+	public void setQuarto(Quarto quarto) {
+		this.quarto = quarto;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public String gerarCodigo() {

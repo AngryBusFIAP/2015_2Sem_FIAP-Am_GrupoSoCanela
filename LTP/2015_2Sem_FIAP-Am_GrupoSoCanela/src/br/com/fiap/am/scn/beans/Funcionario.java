@@ -1,6 +1,8 @@
 package br.com.fiap.am.scn.beans;
 
 public class Funcionario extends Pessoa {
+	
+	private int codFuncionario;
 
 	private String cargo;
 
@@ -14,11 +16,21 @@ public class Funcionario extends Pessoa {
 
 	public Funcionario(String cargo, String dtAdmissão, double salario) {
 		super();
+		this.codFuncionario = codFuncionario;
 		this.cargo = cargo;
 		this.dtAdmissão = dtAdmissão;
 		this.salario = salario;
 	}
 
+	
+	public int getCodFuncionario(){
+		return codFuncionario;
+	}
+	
+	public void setCodFuncionario(int codFuncionario){
+		this.codFuncionario = codFuncionario;
+	}
+	
 	public String getCargo() {
 		return cargo;
 	}

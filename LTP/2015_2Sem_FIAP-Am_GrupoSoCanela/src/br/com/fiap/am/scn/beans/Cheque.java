@@ -3,24 +3,20 @@ package br.com.fiap.am.scn.beans;
 public class Cheque {
 
 	private int numeroCheque;
-
+	
+	private int codHospedagem;
+	
 	private String banco;
-
-	private Double valorParcela;
-
-	private int nrParcelas;
 
 	public Cheque() {
 		super();
 	}
 
-	public Cheque(int numeroCheque, String banco, Double valorParcela,
-			int nrParcelas) {
+	public Cheque(int numeroCheque, int codHospedagem, String banco) {
 		super();
 		this.numeroCheque = numeroCheque;
+		this.codHospedagem = codHospedagem;
 		this.banco = banco;
-		this.valorParcela = valorParcela;
-		this.nrParcelas = nrParcelas;
 	}
 
 	public int getNumeroCheque() {
@@ -31,6 +27,13 @@ public class Cheque {
 		this.numeroCheque = numeroCheque;
 	}
 
+	public int getCodHospedagem(){
+		return codHospedagem;
+	}
+	
+	public void setCodHospedagem(int codHospedagem){
+		this.codHospedagem = codHospedagem;
+	}
 	public String getBanco() {
 		return banco;
 	}
@@ -39,22 +42,6 @@ public class Cheque {
 		this.banco = banco;
 	}
 
-	public Double getValorParcela() {
-		return valorParcela;
-	}
-
-	public void setValorParcela(Double valorParcela) {
-		this.valorParcela = valorParcela;
-	}
-
-	public int getNrParcelas() {
-		return nrParcelas;
-	}
-
-	public void setNrParcelas(int nrParcelas) {
-		this.nrParcelas = nrParcelas;
-	}
-	
 	
 
 }
