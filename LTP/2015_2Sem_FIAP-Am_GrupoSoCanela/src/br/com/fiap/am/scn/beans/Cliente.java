@@ -76,8 +76,5 @@ public class Cliente extends Pessoa {
 		this.senha = senha;
 	}
 
-	public void alterarSenha() {
-
-	}
 
 }
