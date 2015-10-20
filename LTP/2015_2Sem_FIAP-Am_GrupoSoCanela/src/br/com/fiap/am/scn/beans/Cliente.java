@@ -2,6 +2,14 @@ package br.com.fiap.am.scn.beans;
 
 public class Cliente extends Pessoa {
 
+	private String dtNascimento;
+
+	private int quartoPreferido;
+
+	private Long cpf;
+
+	private String rg;
+
 	private String email;
 
 	private String senha;
@@ -10,10 +18,46 @@ public class Cliente extends Pessoa {
 		super();
 	}
 
-	public Cliente(String email, String senha) {
+	public Cliente(String dtNascimento, int quartoPreferido, Long cpf, String rg, String email, String senha) {
 		super();
+		this.dtNascimento = dtNascimento;
+		this.quartoPreferido = quartoPreferido;
+		this.cpf = cpf;
+		this.rg = rg;
 		this.email = email;
 		this.senha = senha;
+	}
+
+	public String getDtNascimento(){
+		return dtNascimento;
+	}
+
+	public void setDtNascimento(String dtNascimento){
+		this.dtNascimento = dtNascimento;
+	}
+
+	public int getQuartoPreferido(){
+		return quartoPreferido;
+	}
+
+	public void setQuartoPreferido(int quartoPreferido){
+		this.quartoPreferido = quartoPreferido;
+	}
+
+	public Long getCpf(){
+		return cpf;
+	}
+
+	public void setCpf(Long cpf){
+		this.cpf = cpf;
+	}
+
+	public String getRg(){
+		return rg;
+	}
+
+	public void setRg(String rg){
+		this.rg = rg;
 	}
 
 	public String getEmail() {
@@ -32,8 +76,6 @@ public class Cliente extends Pessoa {
 		this.senha = senha;
 	}
 
-	
-	
 	public void alterarSenha() {
 
 	}

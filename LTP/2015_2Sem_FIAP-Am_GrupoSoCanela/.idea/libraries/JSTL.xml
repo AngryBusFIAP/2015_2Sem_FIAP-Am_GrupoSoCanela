@@ -1,13 +1,7 @@
 <component name="libraryTable">
   <library name="JSTL">
-    <CLASSES>
-      <root url="jar:///opt/JSTL/javax.servlet.jsp.jstl-1.2.1.jar!/" />
-      <root url="jar:///opt/JSTL/javax.servlet.jsp.jstl-api-1.2.1.jar!/" />
-    </CLASSES>
-    <JAVADOC>
-      <root url="jar:///opt/JSTL/javax.servlet.jsp.jstl-1.2.1-javadoc.jar!/" />
-      <root url="jar:///opt/JSTL/javax.servlet.jsp.jstl-api-1.2.1-javadoc.jar!/" />
-    </JAVADOC>
+    <CLASSES />
+    <JAVADOC />
     <SOURCES />
   </library>
 </component>
