@@ -6,7 +6,7 @@ public class Cliente extends Pessoa {
 
 	private int quartoPreferido;
 
-	private Long cpf;
+	private long cpf;
 
 	private String rg;
 
@@ -18,7 +18,7 @@ public class Cliente extends Pessoa {
 		super();
 	}
 
-	public Cliente(String dtNascimento, int quartoPreferido, Long cpf, String rg, String email, String senha) {
+	public Cliente(String dtNascimento, int quartoPreferido, long cpf, String rg, String email, String senha) {
 		super();
 		this.dtNascimento = dtNascimento;
 		this.quartoPreferido = quartoPreferido;
@@ -44,11 +44,11 @@ public class Cliente extends Pessoa {
 		this.quartoPreferido = quartoPreferido;
 	}
 
-	public Long getCpf(){
+	public long getCpf(){
 		return cpf;
 	}
 
-	public void setCpf(Long cpf){
+	public void setCpf(long cpf){
 		this.cpf = cpf;
 	}
 

@@ -2,9 +2,9 @@ package br.com.fiap.am.scn.beans;
 
 public class Funcionario extends Pessoa {
 
-	private String cargo;
+	private int cargo;
 
-	private String dtAdmissão;
+	private String dtAdmissao;
 
 	private double salario;
 
@@ -12,27 +12,27 @@ public class Funcionario extends Pessoa {
 		super();
 	}
 
-	public Funcionario(String cargo, String dtAdmissão, double salario) {
+	public Funcionario(int cargo, String dtAdmissao, double salario) {
 		super();
 		this.cargo = cargo;
-		this.dtAdmissão = dtAdmissão;
+		this.dtAdmissao = dtAdmissao;
 		this.salario = salario;
 	}
 
-	public String getCargo() {
+	public int getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(int cargo) {
 		this.cargo = cargo;
 	}
 
-	public String getDtAdmissão() {
-		return dtAdmissão;
+	public String getDtAdmissao() {
+		return dtAdmissao;
 	}
 
-	public void setDtAdmissão(String dtAdmissão) {
-		this.dtAdmissão = dtAdmissão;
+	public void setDtAdmissao(String dtAdmissao) {
+		this.dtAdmissao = dtAdmissao;
 	}
 
 	public double getSalario() {
