@@ -4,11 +4,11 @@ public class Consumo {
 
 	private int codConsumo;
 	
-	private int codHospedagem;
+	private Hospedagem hospedagem;
 
 	private TipoServico tipoServicos;
 	
-	private int codPessoa;
+	private Funcionario funcionario;
 	
 	private String dtConsumo;
 	
@@ -18,13 +18,13 @@ public class Consumo {
 		super();
 	}
 
-	public Consumo(int codConsumo, int codHospedagem, TipoServico tipoServicos,
-			int codPessoa, String dtConsumo, int qtdeConsumo) {
+	public Consumo(int codConsumo, Hospedagem Hospedagem, TipoServico tipoServicos,
+			Funcionario funcionario, String dtConsumo, int qtdeConsumo) {
 		super();
 		this.codConsumo = codConsumo;
-		this.codHospedagem = codHospedagem;
+		this.hospedagem = Hospedagem;
 		this.tipoServicos = tipoServicos;
-		this.codPessoa = codPessoa;
+		this.funcionario = funcionario;
 		this.dtConsumo = dtConsumo;
 		this.qtdeConsumo = qtdeConsumo;
 	}
@@ -37,12 +37,12 @@ public class Consumo {
 		this.codConsumo = codConsumo;
 	}
 
-	public int getCodHospedagem() {
-		return codHospedagem;
+	public Hospedagem getHospedagem() {
+		return hospedagem;
 	}
 
-	public void setCodHospedagem(int codHospedagem) {
-		this.codHospedagem = codHospedagem;
+	public void setHospedagem(Hospedagem codHospedagem) {
+		this.hospedagem = codHospedagem;
 	}
 
 	public TipoServico getTipoServicos() {
@@ -53,12 +53,12 @@ public class Consumo {
 		this.tipoServicos = tipoServicos;
 	}
 
-	public int getCodPessoa() {
-		return codPessoa;
+	public Funcionario getCodFuncionario() {
+		return funcionario;
 	}
 
-	public void setCodPessoa(int codPessoa) {
-		this.codPessoa = codPessoa;
+	public void setCodFuncionario(Funcionario codFuncionario) {
+		this.funcionario = codFuncionario;
 	}
 
 	public String getDtConsumo() {

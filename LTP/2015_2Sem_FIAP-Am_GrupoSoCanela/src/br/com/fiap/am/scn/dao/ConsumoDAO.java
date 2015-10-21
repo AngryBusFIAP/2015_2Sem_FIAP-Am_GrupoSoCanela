@@ -43,6 +43,9 @@ public class ConsumoDAO {
                 funcionario.setCodFuncionario(rs.getInt("CD_FUNCIONARIO"));
                 consumo.setDtConsumo(rs.getString("DT_CONSUMO"));
                 consumo.setQtdeConsumo(rs.getInt("QT_CONSUMO"));
+                consumo.setHospedagem(hospedagem);
+                consumo.setCodFuncionario(funcionario);
+                consumo.setTipoServicos(tipoServico);
                 rs.close();
                 ps.close();
             }
