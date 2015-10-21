@@ -8,15 +8,18 @@ public class TipoQuarto {
 
 	private Double valor;
 
+	private String observacao;
+
 	public TipoQuarto() {
 		super();
 	}
 
-	public TipoQuarto(int codTipoQuarto, String descricao, Double valor) {
+	public TipoQuarto(int codTipoQuarto, String descricao, Double valor, String observacao) {
 		super();
 		this.codTipoQuarto = codTipoQuarto;
 		this.descricao = descricao;
 		this.valor = valor;
+		this.observacao = observacao;
 	}
 
 	
@@ -42,6 +45,14 @@ public class TipoQuarto {
 
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+
+	public String getObservacao(){
+		return observacao;
+	}
+
+	public void setObservacao(String observacao){
+		this.observacao = observacao;
 	}
 	
 	

@@ -2,6 +2,8 @@ package br.com.fiap.am.scn.beans;
 
 public class TipoServico {
 
+	private int codigo;
+
 	private String descricao;
 
 	private double valor;
@@ -10,10 +12,19 @@ public class TipoServico {
 		super();
 	}
 
-	public TipoServico(String descricao, double valor) {
+	public TipoServico(int codigo, String descricao, double valor) {
 		super();
+		this.codigo = codigo;
 		this.descricao = descricao;
 		this.valor = valor;
+	}
+
+	public int getCodigo(){
+		return codigo;
+	}
+
+	public void setCodigo(int codigo){
+		this.codigo = codigo;
 	}
 
 	public String getDescricao() {

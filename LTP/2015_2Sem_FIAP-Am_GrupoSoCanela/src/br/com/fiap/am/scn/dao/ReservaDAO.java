@@ -27,10 +27,11 @@ public class ReservaDAO {
         }
     }
 
-    public Reserva reserva(int codigo) throws Excecao{
+    public Reserva getReserva(int codigo) throws Excecao{
 
         Cliente cli = new Cliente();
         Funcionario fun = new Funcionario();
+
 
         Reserva reserva = new Reserva();
         try{
