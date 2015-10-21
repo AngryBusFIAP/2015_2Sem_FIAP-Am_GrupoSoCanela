@@ -2,6 +2,7 @@ package br.com.fiap.am.scn.beans;
 
 public class FormaPagamento {
 
+
 	private Dinheiro dinheiro;
 
 	private Cheque cheque;
