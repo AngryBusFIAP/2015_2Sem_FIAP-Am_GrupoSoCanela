@@ -22,7 +22,7 @@ public class Reserva {
 	
 	private Funcionario funcionario; 
 
-	private String status;
+	private int status;
 
 	public Reserva() {
 		super();
@@ -32,7 +32,7 @@ public class Reserva {
 			String dtInicioReserva, String dtFimReserva,
 			int qtdHospedesCrianca, int qtdHospedesAdulto, Quarto quarto,
 			Double valor, Cliente cliente, Funcionario funcionario,
-			String status) {
+			int status) {
 		super();
 		this.codReserva = codReserva;
 		this.dtSolicitacao = dtSolicitacao;
@@ -127,11 +127,11 @@ public class Reserva {
 		this.funcionario = funcionario;
 	}
 
-	public String getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	
