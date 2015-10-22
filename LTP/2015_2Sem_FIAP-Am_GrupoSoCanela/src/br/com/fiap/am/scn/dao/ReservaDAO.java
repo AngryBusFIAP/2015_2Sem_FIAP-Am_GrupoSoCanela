@@ -59,5 +59,37 @@ public class ReservaDAO {
 
         return reserva;
     }
-
+    public String getDataReserva(int codReserva) throws Excecao{
+    	String dataReserva = null;
+    	try{
+    		PreparedStatement ps = c.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_RESERVA = ?");
+    		ps.setInt(1, codReserva);
+    		ResultSet rs = ps.executeQuery();
+    		if(rs.next()){
+    			dataReserva = (rs.getString("DT_INICIO_RESERVA"));
+    			rs.close();
+    			ps.close();
+    		}
+    	}catch(SQLException e){
+    		throw new Excecao(e);
+    	}
+    	return dataReserva;
+    }
+    
+    public String getDataReserva(Cliente cliente) throws Excecao{
+    	String dataReserva = null;
+    	try{
+	       	PreparedStatement ps = c.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_CLIENTE = ?");
+	    	ps.setDouble(1, cliente.getId());
+	    	ResultSet rs = ps.executeQuery();
+	    	if(rs.next()){
+	    		dataReserva = (rs.getString("DT_INICIO_RESERVA"));
+	    		rs.close();
+	    		ps.close();
+	    	}
+    	}catch(SQLException e){
+    		throw new Excecao(e);
+    	}
+    	return dataReserva;
+    }
 }
