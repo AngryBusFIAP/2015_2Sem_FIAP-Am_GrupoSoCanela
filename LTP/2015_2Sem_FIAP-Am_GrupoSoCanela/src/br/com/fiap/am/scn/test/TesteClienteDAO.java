@@ -30,6 +30,6 @@ public class TesteClienteDAO {
 //        Cliente c = new Cliente();
 //        ClienteDAO cliDAO = new ClienteDAO();
 //        c = cliDAO.getClienteCPF(34891612601l);
-//        System.out.println(p.getNome() + "\n" +  c.getCpf());
+      System.out.println(p.getNome() + "\n" +  c.getCpf());
     }
 }
