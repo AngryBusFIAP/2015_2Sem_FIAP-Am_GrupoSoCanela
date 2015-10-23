@@ -14,7 +14,7 @@ public class TesteFuncionarioDAO {
         Funcionario f = new Funcionario();
         FuncionarioDAO fDAO = new FuncionarioDAO();
         f = fDAO.getFuncionario(9);
-        System.out.println(f.getCargo() + "\n" + f.getDtAdmissao());
+        System.out.println(f.getId());
 
     }
 }

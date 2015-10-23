@@ -34,6 +34,7 @@ public class FuncionarioDAO {
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
+                funcionario.setId(rs.getInt("CD_FUNCIONARIO"));
                 funcionario.setCargo(rs.getInt("DS_CARGO"));
                 funcionario.setDtAdmissao(rs.getString("DT_ADMISSAO"));
                 rs.close();

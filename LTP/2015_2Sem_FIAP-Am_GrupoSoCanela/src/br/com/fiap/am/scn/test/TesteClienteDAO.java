@@ -12,24 +12,24 @@ import br.com.fiap.am.scn.exception.Excecao;
 public class TesteClienteDAO {
 
     public static void main(String[] args) throws Excecao{
-//        Pessoa p = new Pessoa();
-//        Cliente c = new Cliente();
-//        p.setNome("Teste");
-//        c.setCpf(4255112345l);
-//        c.setRg("42849001");
-//        c.setDtNascimento("28/12/1993");
-//        c.setQuartoPreferido(20);
-//        c.setEmail("Jardellrocha@msn.com");
-//        c.setSenha("teste123");
-//
-//
-//        System.out.println(new ClienteDAO().cadastrarCliente(p, c));
         Pessoa p = new Pessoa();
-        PessoaDAO pDAO = new PessoaDAO();
-        p = pDAO.getPessoa(1);
-        Cliente c = new Cliente();
-        ClienteDAO cliDAO = new ClienteDAO();
-        c = cliDAO.getClienteCPF(34891612601l);
-        System.out.println(p.getNome() + "\n" +  c.getCpf());
+       Cliente c = new Cliente();
+        p.setNome("DIFERENTEPORRA");
+        c.setCpf(4255252345l);
+        c.setRg("42849901");
+        c.setDtNascimento("28/12/1993");
+        c.setQuartoPreferido(10);
+       c.setEmail("J4rdellrocha@msn.com");
+       c.setSenha("test123");
+//
+//
+        System.out.println(new ClienteDAO().cadastrarCliente(p, c));
+//        Pessoa p = new Pessoa();
+//        PessoaDAO pDAO = new PessoaDAO();
+//        p = pDAO.getPessoa(1);
+//        Cliente c = new Cliente();
+//        ClienteDAO cliDAO = new ClienteDAO();
+//        c = cliDAO.getClienteCPF(34891612601l);
+//        System.out.println(p.getNome() + "\n" +  c.getCpf());
     }
 }

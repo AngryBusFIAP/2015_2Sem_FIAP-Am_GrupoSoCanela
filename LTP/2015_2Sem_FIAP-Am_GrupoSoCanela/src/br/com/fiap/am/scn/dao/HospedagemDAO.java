@@ -1,6 +1,13 @@
 package br.com.fiap.am.scn.dao;
 
 import br.com.fiap.am.scn.beans.*;
+import br.com.fiap.am.scn.connection.ConexaoFactory;
+import br.com.fiap.am.scn.exception.Excecao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created by
@@ -11,8 +18,72 @@ import br.com.fiap.am.scn.beans.*;
  */
 public class HospedagemDAO {
 
+    private Connection c;
 
-    public String confirmHosp(Cliente cliente, Hospedagem hospedagem, Quarto quarto, Reserva reserva, Funcionario funcionario) {
-        return null;
+    public HospedagemDAO() throws Excecao {
+
+        try {
+            c = new ConexaoFactory().getConnection();
+        } catch (Exception e) {
+            throw new Excecao(e);
+        }
+    }
+
+
+    public String confirmHosp(Hospedagem hospedagem) throws Excecao{
+
+        String sql = "INSERT INTO T_AM_SCN_HOSPEDAGEM VALUES (SQ_SCN_HBV_HOSPEDAGEM.NEXTVAL, ?,?,?,?,?,?,?)";
+
+        try{
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1, hospedagem.getQuarto().getNumero());
+            ps.setInt(2, hospedagem.getReserva().getCodReserva());
+            ps.setInt(3, hospedagem.getCliente().getId());
+            ps.setInt(4, hospedagem.getFuncionario().getId());
+            ps.setString(5, hospedagem.getDtEntrada());
+            ps.setString(6, hospedagem.getDtSaida());
+            ps.setDouble(7, hospedagem.getPercDesconto());
+            ps.execute();
+            ps.close();
+        }catch (SQLException e){
+            throw new Excecao(e);
+        }
+
+        return "Hospedagem cadastrada com sucesso";
+    }
+
+    public Hospedagem getHospedagem(int codigo) throws Excecao {
+
+        Hospedagem hospedagem = new Hospedagem();
+        Quarto quarto = new Quarto();
+        Cliente cliente = new Cliente();
+        Funcionario funcionario = new Funcionario();
+        Reserva reserva = new Reserva();
+
+        try {
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM =?");
+            ps.setInt(1, codigo);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                hospedagem.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
+                quarto.setNumero(rs.getInt("NR_QUARTO"));
+                reserva.setCodReserva(rs.getInt("CD_RESERVA"));
+                cliente.setId(rs.getInt("CD_CLIENTE"));
+                funcionario.setId(rs.getInt("CD_FUNCIONARIO"));
+                hospedagem.setDtEntrada(rs.getString("DT_ENTRADA"));
+                hospedagem.setDtSaida(rs.getString("DT_SAIDA"));
+                hospedagem.setPercDesconto(rs.getDouble("VC_PERC_DESCONTO"));
+                hospedagem.setQuarto(quarto);
+                hospedagem.setReserva(reserva);
+                hospedagem.setCliente(cliente);
+                hospedagem.setFuncionario(funcionario);
+                rs.close();
+                ps.close();
+            }
+        } catch (SQLException e) {
+            throw new Excecao(e);
+        }
+        return hospedagem;
     }
 }
+

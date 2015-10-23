@@ -27,12 +27,22 @@ public class ClienteDAO {
 
     public String cadastrarCliente(Pessoa pessoa, Cliente cliente) throws Excecao{
 
-        new PessoaDAO().cadastrarPessoa(pessoa);
+        String sql = "INSERT INTO T_AM_SCN_PESSOA VALUES (SQ_SCN_PESSOA.NEXTVAL, ?)";
 
-        String sql = "INSERT INTO T_AM_SCN_CLIENTE VALUES (SQ_SCN_PESSOA.CURRVAL, ?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, pessoa.getNome());
+            ps.execute();
+
+        } catch (SQLException e) {
+            throw new Excecao(e);
+
+        }
+
+        String sql2 = "INSERT INTO T_AM_SCN_CLIENTE VALUES (SQ_SCN_PESSOA.CURRVAL, ?,?,?,?,?,?)";
 
         try{
-            PreparedStatement ps = c.prepareStatement(sql);
+            PreparedStatement ps = c.prepareStatement(sql2);
             ps.setLong(1, cliente.getCpf());
             ps.setString(2, cliente.getRg());
             ps.setString(3, cliente.getDtNascimento());
@@ -56,6 +66,7 @@ public class ClienteDAO {
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
+                cliente.setId(rs.getInt("CD_CLIENTE"));
                 cliente.setCpf(rs.getLong("NR_CPF"));
                 cliente.setRg(rs.getString("NR_RG"));
                 cliente.setDtNascimento(rs.getString("DT_NASCIMENTO"));

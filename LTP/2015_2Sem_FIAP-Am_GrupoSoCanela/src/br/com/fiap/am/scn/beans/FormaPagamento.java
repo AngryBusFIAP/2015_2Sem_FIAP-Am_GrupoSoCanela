@@ -2,6 +2,9 @@ package br.com.fiap.am.scn.beans;
 
 public class FormaPagamento {
 
+	private int codigo;
+
+	private String descricao;
 
 	private Dinheiro dinheiro;
 
@@ -13,11 +16,29 @@ public class FormaPagamento {
 		super();
 	}
 
-	public FormaPagamento(Dinheiro dinheiro, Cheque cheque, Cartao cartao) {
+	public FormaPagamento(int codigo, String descricao, Dinheiro dinheiro, Cheque cheque, Cartao cartao) {
 		super();
+		this.codigo = codigo;
+		this.descricao = descricao;
 		this.dinheiro = dinheiro;
 		this.cheque = cheque;
 		this.cartao = cartao;
+	}
+
+	public int getCodigo(){
+		return codigo;
+	}
+
+	public void setCodigo(int codigo){
+		this.codigo = codigo;
+	}
+
+	public String getDescricao(){
+		return descricao;
+	}
+
+	public void setDescricao(String descricao){
+		this.descricao = descricao;
 	}
 
 	public Dinheiro getDinheiro() {

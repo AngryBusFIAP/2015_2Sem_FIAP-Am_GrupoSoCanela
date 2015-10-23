@@ -26,7 +26,7 @@ public class PagamentoDAO {
         }
     }
 
-    public Pagamento pagamento(int codigo)throws Excecao{
+    public Pagamento getPagamento(int codigo)throws Excecao{
         Pagamento pagamento = new Pagamento();
         FormaPagamento formaPagamento = new FormaPagamento();
 
@@ -36,7 +36,12 @@ public class PagamentoDAO {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 pagamento.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
-
+                formaPagamento.setCodigo(rs.getInt("CD_TIPO_FORMAPAG"));
+                pagamento.setDtPagamento(rs.getString("DT_PAGAMENTO"));
+                pagamento.setValor(rs.getDouble("VL_PAGAMENTO"));
+                pagamento.setTipo(formaPagamento);
+                rs.close();
+                ps.close();
             }
         }catch (SQLException e){
             throw new Excecao(e);
