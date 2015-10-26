@@ -1,15 +1,20 @@
 package br.com.fiap.am.scn.test;
 
 import br.com.fiap.am.scn.beans.*;
+import br.com.fiap.am.scn.bo.HospedagemBO;
 import br.com.fiap.am.scn.dao.*;
 import br.com.fiap.am.scn.exception.Excecao;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Created by Jardel on 22/10/2015.
  */
 public class TesteHospedagemDAO {
 
-    public static void main(String[] args)throws Excecao{
+    public static void main(String[] args) throws Excecao {
 
         Hospedagem h = new Hospedagem();
         Funcionario f = new Funcionario();
@@ -22,27 +27,44 @@ public class TesteHospedagemDAO {
         FuncionarioDAO fDAO = new FuncionarioDAO();
         ReservaDAO rDAO = new ReservaDAO();
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+        try {
+
+            System.out.println(new HospedagemBO().verifDtEntrada(1));
+            Calendar hoje = Calendar.getInstance();
+            Calendar dtReserva = Calendar.getInstance();
+            dtReserva.setTime(dateFormat.parse(new ReservaDAO().getDataReserva(1).substring(0, 10)));
+            System.out.println(dateFormat.format(dtReserva.getTime()));
 
 
-        q = qDAO.getQuarto(1);
-        h.setQuarto(q);
+        } catch (ParseException e) {
+            throw new Excecao(e);
+        }
 
-        r = rDAO.getReserva(1);
-        h.setReserva(r);
-
-        c = cDAO.getCliente(1);
-        h.setCliente(c);
-
-        f = fDAO.getFuncionario(8);
-        h.setFuncionario(f);
-
-        h.setDtEntrada("22/10/2015");
-        h.setDtSaida("25/10/2015");
-        h.setPercDesconto(5);
-
-        hDAO.confirmHosp(h);
-
-        System.out.println(h.getFuncionario().getId());
+//        q = qDAO.getQuarto(1);
+//        h.setQuarto(q);
+//
+//        r = rDAO. getReserva(1);
+//        h.setReserva(r);
+//
+//        c = cDAO.getCliente(1);
+//        h.setCliente(c);
+//
+//        f = fDAO.getFuncionario(8);
+//        h.setFuncionario(f);
+//
+//        h.setDtEntrada("22/10/2015");
+//        h.setDtSaida("25/10/2015");
+//        h.setPercDesconto(5);
+//
+//        HospedagemBO hBO = new HospedagemBO();
+//
+//        try {
+//            System.out.println(new HospedagemBO().verifDtEntrada(1));
+//        } catch (ParseException e) {
+//            throw new Excecao(e);
+//
+//        }
 
 
         //h.setQuarto(q.setNumero(1));

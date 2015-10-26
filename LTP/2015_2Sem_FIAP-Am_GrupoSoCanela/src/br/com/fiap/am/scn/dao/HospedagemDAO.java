@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by
@@ -17,13 +19,33 @@ import java.sql.SQLException;
  *         HospedagemDAO é uma classe
  */
 public class HospedagemDAO {
-
-    private Connection c;
+    private Connection connection;
 
     public HospedagemDAO() throws Excecao {
+        try {
+            connection = new ConexaoFactory().getConnection();
+        } catch (Exception e) {
+            throw new Excecao(e);
+        }
+    }
+
+    public String confirmHosp(Cliente cliente, Hospedagem hospedagem, Quarto quarto, Reserva reserva, Funcionario funcionario) {
+        return null;
+    }
+
+    public Date sysDate() throws Excecao {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            c = new ConexaoFactory().getConnection();
+            PreparedStatement stmt = connection.prepareStatement("SELECT SYSDATE FROM DUAL");
+            ResultSet resultSet = stmt.executeQuery();
+
+            if(resultSet.next()) {
+                Date sysDt = dateFormat.parse(resultSet.getString("SYSDATE"));
+                return sysDt;
+            }else{
+                return new Date();
+            }
         } catch (Exception e) {
             throw new Excecao(e);
         }
@@ -35,7 +57,7 @@ public class HospedagemDAO {
         String sql = "INSERT INTO T_AM_SCN_HOSPEDAGEM VALUES (SQ_SCN_HBV_HOSPEDAGEM.NEXTVAL, ?,?,?,?,?,?,?)";
 
         try{
-            PreparedStatement ps = c.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, hospedagem.getQuarto().getNumero());
             ps.setInt(2, hospedagem.getReserva().getCodReserva());
             ps.setInt(3, hospedagem.getCliente().getId());
@@ -61,7 +83,7 @@ public class HospedagemDAO {
         Reserva reserva = new Reserva();
 
         try {
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM =?");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM =?");
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
@@ -86,4 +108,3 @@ public class HospedagemDAO {
         return hospedagem;
     }
 }
-

@@ -17,24 +17,24 @@ public class Excecao extends Exception{
 
     public Excecao(Exception e){
         if(e.getClass().toString().equals("class java.lang.NumberFormatException")){
-            System.out.println("Número informado invalido");
+            System.out.println("Nï¿½mero informado invalido");
         }
         if(e.getClass().toString().equals("class java.lang.ArithmeticExcpetion")){
-            System.out.println("O número não pode ser divido por 0");
+            System.out.println("O nï¿½mero nï¿½o pode ser divido por 0");
         }
         if(e.getClass().toString().equals("class java.lang.NullPointerException")){
-            System.out.println("Valor informado inválido");
+            System.out.println("Valor informado invï¿½lido");
         }
         if(e.getClass().toString().equals("class java.lang.FileNotFoundException")){
-            System.out.println("O arquivo informado não foi encontrado");
+            System.out.println("O arquivo informado nï¿½o foi encontrado");
         }
         if(e.getClass().toString().equals("class java.lang.ArrayIndexOutofBounds")){
-            System.out.println("Valor do array inválido");
+            System.out.println("Valor do array invï¿½lido");
         }
         if(e.getClass().toString().equals("class java.lang.IllegalArgumentException")){
-            System.out.println("Valor inválido");
+            System.out.println("Valor invï¿½lido");
         }else{
-            System.out.println("Erro inesperado, contate o suporte!");
+            System.out.println("Erro inesperado, contate o suporte!\n" + e);
         }
     }
 
@@ -43,6 +43,6 @@ public class Excecao extends Exception{
     }
 
     public Excecao(ClassNotFoundException e) {
-        System.out.println("Driver do JDBC não encontrado no projeto");
+        System.out.println("Driver do JDBC nï¿½o encontrado no projeto");
     }
 }

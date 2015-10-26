@@ -16,42 +16,41 @@ import java.sql.SQLException;
  */
 public class ReservaDAO {
 
-    private Connection c;
+    private Connection connection;
 
     public ReservaDAO() throws Excecao{
 
         try{
-            c = new ConexaoFactory().getConnection();
+            connection = new ConexaoFactory().getConnection();
         }catch(Exception e){
             throw new Excecao(e);
         }
     }
 
-    public Reserva getReserva(int codigo) throws Excecao{
+    public Reserva getReserva(int codigoReserva) throws Excecao{
 
-        Cliente cli = new Cliente();
-        Funcionario fun = new Funcionario();
-
+        Cliente cliente = new Cliente();
+        Funcionario funcionario = new Funcionario();
 
         Reserva reserva = new Reserva();
         try{
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM T_AM_SCN_RESERVA WHERE CD_RESERVA =?");
-            ps.setInt(1, codigo);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                reserva.setCodReserva(rs.getInt("CD_RESERVA"));
-                cli.setId(rs.getInt("CD_CLIENTE"));
-                fun.setId(rs.getInt("CD_FUNCIONARIO"));
-                reserva.setDtSolicitacao(rs.getString("DT_SOLICITACAO"));
-                reserva.setDtInicioReserva(rs.getString("DT_INICIO_RESERVA"));
-                reserva.setDtFimReserva(rs.getString("DT_FINAL_RESERVA"));
-                reserva.setQtdHospedesAdulto(rs.getInt("QT_ADULTO"));
-                reserva.setQtdHospedesCrianca(rs.getInt("QT_CRIANCA"));
-                reserva.setStatus(rs.getInt("ST_RESERVA"));
-                reserva.setCliente(cli);
-                reserva.setFuncionario(fun);
-                rs.close();
-                ps.close();
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM T_AM_SCN_RESERVA WHERE CD_RESERVA =?");
+            statement.setInt(1, codigoReserva);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                reserva.setCodReserva(resultSet.getInt("CD_RESERVA"));
+                cliente.setId(resultSet.getInt("CD_CLIENTE"));
+                funcionario.setId(resultSet.getInt("CD_FUNCIONARIO"));
+                reserva.setDtSolicitacao(resultSet.getString("DT_SOLICITACAO"));
+                reserva.setDtInicioReserva(resultSet.getString("DT_INICIO_RESERVA"));
+                reserva.setDtFimReserva(resultSet.getString("DT_FINAL_RESERVA"));
+                reserva.setQtdHospedesAdulto(resultSet.getInt("QT_ADULTO"));
+                reserva.setQtdHospedesCrianca(resultSet.getInt("QT_CRIANCA"));
+                reserva.setStatus(resultSet.getInt("ST_RESERVA"));
+                reserva.setCliente(cliente);
+                reserva.setFuncionario(funcionario);
+                resultSet.close();
+                statement.close();
             }
         }catch(SQLException e){
             throw new Excecao(e);
@@ -59,37 +58,37 @@ public class ReservaDAO {
 
         return reserva;
     }
-    public String getDataReserva(int codReserva) throws Excecao{
-    	String dataReserva = null;
-    	try{
-    		PreparedStatement ps = c.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_RESERVA = ?");
-    		ps.setInt(1, codReserva);
-    		ResultSet rs = ps.executeQuery();
-    		if(rs.next()){
-    			dataReserva = (rs.getString("DT_INICIO_RESERVA"));
-    			rs.close();
-    			ps.close();
-    		}
-    	}catch(SQLException e){
-    		throw new Excecao(e);
-    	}
-    	return dataReserva;
-    }
-    
+
     public String getDataReserva(Cliente cliente) throws Excecao{
-    	String dataReserva = null;
-    	try{
-	       	PreparedStatement ps = c.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_CLIENTE = ?");
-	    	ps.setDouble(1, cliente.getId());
-	    	ResultSet rs = ps.executeQuery();
-	    	if(rs.next()){
-	    		dataReserva = (rs.getString("DT_INICIO_RESERVA"));
-	    		rs.close();
-	    		ps.close();
-	    	}
-    	}catch(SQLException e){
-    		throw new Excecao(e);
-    	}
-    	return dataReserva;
+        String strDtReserva = null;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_CLIENTE = ?");
+            statement.setDouble(1, cliente.getId());
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                strDtReserva = (resultSet.getString("DT_INICIO_RESERVA"));
+                resultSet.close();
+                statement.close();
+            }
+
+        }catch(SQLException e){
+            throw new Excecao(e);
+        }
+        return strDtReserva;
+    }
+
+    public String getDataReserva(int codReserva) throws Excecao{
+        String dtReserva = null;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT DT_INICIO_RESERVA FROM T_AM_SCN_RESERVA WHERE CD_RESERVA = ?");
+            statement.setInt(1, codReserva);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                dtReserva = resultSet.getString("DT_INICIO_RESERVA");
+            }
+        }catch (Exception e){
+            new Excecao(e);
+        }
+        return dtReserva;
     }
 }
