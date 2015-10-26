@@ -26,6 +26,19 @@ public class PagamentoDAO {
         }
     }
 
+    public String confPagamento(Pagamento pagamento) throws Excecao{
+
+        String sql = "INSERT INTO T_AM_SCN_PAGAMENTO VALUES(SQ_SCN)";
+
+        try{
+        PreparedStatement ps = c.prepareStatement(sql);
+        }catch (SQLException e){
+            throw new Excecao(e);
+        }
+        return "a";
+    }
+
+
     public Pagamento getPagamento(int codigo)throws Excecao{
         Pagamento pagamento = new Pagamento();
         FormaPagamento formaPagamento = new FormaPagamento();

@@ -15,9 +15,9 @@ public class TesteConsumoDAO {
         ConsumoDAO cDAO = new ConsumoDAO();
 
         //c = cDAO.getConsumo(2);
-        for(Consumo con : cDAO.getConsumo(2)){
+        for(Consumo con : cDAO.getProduto(5)){
             System.out.println(con.getCodConsumo() + con.getTipoServicos().getDescricao()
-                    + con.getHospedagem().getCodHospedagem() + "\n" +con.getHistoricoPreco().getVlPreco());
+                    + con.getHospedagem().getCodHospedagem() + "\n" +con.getHistoricoPreco().getVlPreco() + "\n" +con.getHistoricoPreco().getDtValidade() + con.getQtdeConsumo());
         }
 
        // System.out.println(c.getCodConsumo() + "\n" + c.getHospedagem().getCodHospedagem() + "\n" +c.getTipoServicos().getDescricao() + "\n" + + c.getTipoServicos().getValor() + "\n"

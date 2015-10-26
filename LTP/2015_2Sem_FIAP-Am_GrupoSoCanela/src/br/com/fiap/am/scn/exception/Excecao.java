@@ -39,7 +39,7 @@ public class Excecao extends Exception{
     }
 
     public Excecao(SQLException e){
-        System.out.println("Erro inesperado com o banco de dados.");
+        e.printStackTrace();
     }
 
     public Excecao(ClassNotFoundException e) {
