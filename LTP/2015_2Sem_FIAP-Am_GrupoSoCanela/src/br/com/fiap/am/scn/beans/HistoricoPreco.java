@@ -10,6 +10,7 @@ public class HistoricoPreco {
 	private TipoServico tipoServico;
 	private String dtValidade;
 	private double vlPreco;
+
 	
 	public HistoricoPreco() {
 		super();

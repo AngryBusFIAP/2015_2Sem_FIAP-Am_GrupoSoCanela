@@ -21,12 +21,14 @@ public class Consumo {
 	
 	private int qtdeConsumo;
 
+	private HistoricoPreco historicoPreco;
+
 	public Consumo() {
 		super();
 	}
 
 	public Consumo(int codConsumo, Hospedagem Hospedagem, TipoServico tipoServicos,
-			Funcionario funcionario, String dtConsumo, int qtdeConsumo) {
+				   Funcionario funcionario, String dtConsumo, int qtdeConsumo, HistoricoPreco historicoPreco) {
 		super();
 		this.codConsumo = codConsumo;
 		this.hospedagem = Hospedagem;
@@ -34,6 +36,7 @@ public class Consumo {
 		this.funcionario = funcionario;
 		this.dtConsumo = dtConsumo;
 		this.qtdeConsumo = qtdeConsumo;
+		this.historicoPreco = historicoPreco;
 	}
 
 	public int getCodConsumo() {
@@ -83,5 +86,13 @@ public class Consumo {
 	public void setQtdeConsumo(int qtdeConsumo) {
 		this.qtdeConsumo = qtdeConsumo;
 	}
-	
+
+	public HistoricoPreco getHistoricoPreco(){
+		return historicoPreco;
+	}
+
+	public void setHistoricoPreco(HistoricoPreco historicoPreco){
+		this.historicoPreco = historicoPreco;
+	}
+
 }
