@@ -1,5 +1,11 @@
 package br.com.fiap.am.scn.beans;
 
+/**
+ * Classe Beans para Cheque(Forma de Pagamento)
+ * 
+ * @see br.com.fiap.am.scn.beans.Hospedagem;
+ */
+
 public class Cheque {
 
 	private int numeroCheque;

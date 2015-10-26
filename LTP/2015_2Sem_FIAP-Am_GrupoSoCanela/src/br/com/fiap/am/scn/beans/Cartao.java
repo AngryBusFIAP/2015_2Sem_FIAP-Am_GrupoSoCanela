@@ -1,8 +1,13 @@
 package br.com.fiap.am.scn.beans;
+/**
+ * Classe Beans para a Cartao(Forma de Pagamento)
+ * 
+ * @see br.com.fiap.am.scn.beans.Hospedagem;
+ */
+
 
 public class Cartao {
 	private int codPagtoCartao;
-	// so o codigo ou hospedagem inteira
 	private int codHospedagem;
 	
 	private short qtdeParcelas;

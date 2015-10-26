@@ -1,5 +1,10 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Funcionario
+ * 
+ * @extends Pessoa
+ * @see br.com.fiap.am.scn.beans.Pessoa;
+ */
 public class Funcionario extends Pessoa {
 	
 	private int codFuncionario;

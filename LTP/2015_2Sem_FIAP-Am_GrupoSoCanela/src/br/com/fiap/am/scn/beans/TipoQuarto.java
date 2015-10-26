@@ -1,5 +1,7 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Tipo de Quarto
+ */
 public class TipoQuarto {
 	
 	private int codTipoQuarto;

@@ -1,5 +1,9 @@
 package br.com.fiap.am.scn.beans;
 
+/**
+ * Classe Beans para Dinheiro(Forma de Pagamento)
+ * 
+ */
 public class Dinheiro {
 
 	private double valor;

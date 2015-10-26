@@ -1,5 +1,13 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Hospedagem
+ * 
+ * @see br.com.fiap.am.scn.beans.Consumo;
+ * @see br.com.fiap.am.scn.beans.Cliente;
+ * @see br.com.fiap.am.scn.beans.Funcionario;
+ * @see br.com.fiap.am.scn.beans.Reserva;
+ * @see br.com.fiap.am.scn.beans.Quarto;
+ */
 public class Hospedagem {
 
 	private int codHospedagem;

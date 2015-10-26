@@ -1,5 +1,12 @@
 package br.com.fiap.am.scn.beans;
 
+/**
+ * Superclasse Beans para Pessoa 
+ * Classes que herdam dela sao Cliente/Funcionario
+ * 
+ * @see br.com.fiap.am.scn.beans.Cliente;
+ * @see br.com.fiap.am.scn.beans.Funcionario;
+ */
 public class Pessoa {
 
 	private int id;

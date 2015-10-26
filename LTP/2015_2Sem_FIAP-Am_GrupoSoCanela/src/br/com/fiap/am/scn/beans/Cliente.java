@@ -1,5 +1,12 @@
 package br.com.fiap.am.scn.beans;
 
+/**
+ * 
+ * Classe beans para Cliente
+ * 
+ * @extends Pessoa
+ * @see br.com.fiap.am.scn.Pessoa;
+ */
 public class Cliente extends Pessoa {
 
 	private String dtNascimento;

@@ -1,5 +1,11 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Reserva
+ * 
+ * @see br.com.fiap.am.scn.beans.Quarto;
+ * @see br.com.fiap.am.scn.beans.Cliente;
+ * @see br.com.fiap.am.scn.beans.Funcionario;
+ */
 public class Reserva {
 
 	private int codReserva;

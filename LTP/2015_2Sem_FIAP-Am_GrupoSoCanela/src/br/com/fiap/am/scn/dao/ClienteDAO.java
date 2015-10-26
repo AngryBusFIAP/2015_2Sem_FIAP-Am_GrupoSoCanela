@@ -11,7 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 20/10/2015.
+ * Classe de Acesso de Dados do Cliente
+ * 
+ * @see br.com.fiap.am.scn.beans.Cliente;
  */
 public class ClienteDAO {
 
@@ -25,6 +27,14 @@ public class ClienteDAO {
         }
     }
 
+    /**
+     * Metodo para Cadastrar Cliente
+     * @param pessoa - Objeto Pessoa
+     * @param cliente - Objeto Cliente
+     * @return String dizendo se foi cadastrado ou o Erro caso tenha falhado
+     * @deprecated
+     * @throws Excecao
+     */
     public String cadastrarCliente(Pessoa pessoa, Cliente cliente) throws Excecao{
 
         String sql = "INSERT INTO T_AM_SCN_PESSOA VALUES (SQ_SCN_PESSOA.NEXTVAL, ?)";
@@ -57,6 +67,14 @@ public class ClienteDAO {
         return "Registro inserido com sucesso";
     }
 
+    /**
+     * Metodo para recuperar os dados do Cliente no banco de dados
+     * usando o codigo do cliente
+     * 
+     * @param codigo - codigo do Cliente
+     * @return Objeto Cliente
+     * @throws Excecao
+     */
     public Cliente getCliente(int codigo) throws Excecao{
 
         Cliente cliente = new Cliente();
@@ -83,6 +101,14 @@ public class ClienteDAO {
         return cliente;
     }
 
+    /**
+     * Metodo para buscar os dados do cliente no banco de dados
+     * via CPF
+     * 
+     * @param cpf - cpf do Cliente
+     * @return Objeto Cliente
+     * @throws Excecao
+     */
     public Cliente getClienteCPF(long cpf) throws Excecao{
 
         Cliente cliente = new Cliente();

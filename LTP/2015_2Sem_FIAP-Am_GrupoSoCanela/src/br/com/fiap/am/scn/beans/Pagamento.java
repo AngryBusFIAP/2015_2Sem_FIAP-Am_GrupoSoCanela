@@ -1,5 +1,9 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Pagamento
+ *
+ * @see br.com.fiap.am.scn.beans.FormaPagamento;
+ */
 public class Pagamento {
 
 	private int codHospedagem;

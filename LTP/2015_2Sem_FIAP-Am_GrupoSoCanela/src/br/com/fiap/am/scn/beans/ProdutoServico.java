@@ -1,5 +1,9 @@
 package br.com.fiap.am.scn.beans;
-
+/**
+ * Classe Beans para Produto/Servico
+ *  
+ * @see br.com.fiap.am.scn.beans.TipoServico;
+ */
 public class ProdutoServico {
 	private TipoServico tipoServico;
 	private int codHospedagem;

@@ -1,5 +1,8 @@
 package br.com.fiap.am.scn.beans;
 
+/**
+ * Classe Beans para Tipo de Pagamento
+ */
 public class TipoPagamento {
 	private short codTipoFormaPag;
 	private String desFormaPag;
