@@ -115,7 +115,7 @@
           <div class="row mTop20">
             <div class="col-md-4">
               <label for="dt_nascimento">Data de nascimento</label>
-              <input class="form-control" id="birthday" name="dt_nascimento" placeholder="99/99/9999" />
+              <input class="form-control" id="birthday" id="dt_nascimento" name="dt_nascimento" placeholder="99/99/9999" />
             </div>
             <div class="col-md-4">
               <label for="nr_quarto_preferido">Nº quarto preferido</label>

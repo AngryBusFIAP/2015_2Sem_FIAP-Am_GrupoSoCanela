@@ -23,7 +23,13 @@ public class Excecao extends Exception{
             System.out.println("O n�mero n�o pode ser divido por 0");
         }
         if(e.getClass().toString().equals("class java.lang.NullPointerException")){
-            System.out.println("Valor informado inv�lido");
+            System.out.println("Valor informado invalido");
+        }
+        if(e.getClass().toString().equals("class javax.servlet.ServletException")){
+            System.out.println("Erro na Servlet\n"+e);
+        }
+        if(e.getClass().toString().equals("class java.io.IOException")){
+            System.out.println("Erro de Input/Output\n"+e);
         }
         if(e.getClass().toString().equals("class java.lang.FileNotFoundException")){
             System.out.println("O arquivo informado nao foi encontrado");

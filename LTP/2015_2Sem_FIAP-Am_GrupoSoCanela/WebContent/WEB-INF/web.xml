@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>ServletHBV</servlet-name>
+        <servlet-class>br.com.fiap.am.scn.controller.Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletHBV</servlet-name>
+        <url-pattern>Checkin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletHBV</servlet-name>
+        <url-pattern>Checkout</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

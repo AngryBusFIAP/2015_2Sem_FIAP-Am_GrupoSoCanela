@@ -11,5 +11,12 @@
   </head>
   <body>
 
+
+  <input type="button" data-metod="checkin" value="CheckIn">
+
+  <input type="button" data-metod="checkout" value="CheckOut">
+
+
+
   </body>
 </html>

@@ -1,8 +1,8 @@
 package br.com.fiap.am.scn.bo;
 
-import br.com.fiap.am.scn.dao.ReservaDAO;
 import br.com.fiap.am.scn.exception.Excecao;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -95,7 +95,8 @@ public class HospedagemBO {
 //        //Reduzir
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar dtReserva = Calendar.getInstance();
-        dtReserva.setTime(dateFormat.parse(new ReservaDAO().getDataReserva(codReserva)));
+        dtReserva.setTime(dateFormat.parse("2015-10-27"));
+//                new ReservaDAO().getDataReserva(codReserva)));
         Calendar hoje = Calendar.getInstance();
 
         if(dtReserva.compareTo(hoje) == 0){
@@ -107,6 +108,26 @@ public class HospedagemBO {
             }else{
                 return false;
             }
+        }
+
+    }
+
+    public boolean verifDtEntrada(String dtReserva) throws Excecao {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar dtReservaCal = Calendar.getInstance();
+        try {
+            dtReservaCal.setTime(df.parse(dtReserva));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar dtHoje = Calendar.getInstance();
+        Calendar dtAmanha = Calendar.getInstance();
+        dtAmanha.add(Calendar.DAY_OF_MONTH, -1);
+
+        if(dtReservaCal.compareTo(dtHoje) == 0 || dtReservaCal.compareTo(dtAmanha) == 0){
+            return true;
+        } else {
+            return false;
         }
     }
 
