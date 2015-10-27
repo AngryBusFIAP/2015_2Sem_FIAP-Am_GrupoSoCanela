@@ -26,30 +26,33 @@
     </div>
   </nav>
 
+
+
   <div class="container">
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
-      <form action="checkin" method="post">
+      <form action="ServletHotelBoaViagem" method="post">
+        <input type="hidden" name="checkin">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
-              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" />
+              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" value="${reserva.codReserva}"/>
             </div>
           </div>
           <div class="row mTop20">
             <div class="col-md-4">
               <label for="dt_solicitacao">Data solicitação</label>
-              <input class="form-control" id="dt_solicitacao" name="dt_solicitacao" placeholder="99/99/9999" />
+              <input class="form-control" id="dt_solicitacao" name="dt_solicitacao" placeholder="99/99/9999" value="${reserva.dtSolicitacao}"/>
             </div>
             <div class="col-md-4">
               <label for="dt_inicio">Data início</label>
-              <input class="form-control" id="dt_inicio" name="dt_inicio" placeholder="99/99/9999" />
+              <input class="form-control" id="dt_inicio" name="dt_inicio" placeholder="99/99/9999" value="${reserva.dtInicioReserva}" />
             </div>
             <div class="col-md-4">
               <label for="dt_final">Data final</label>
-              <input class="form-control" id="dt_final" name="dt_final" placeholder="99/99/9999" />
+              <input class="form-control" id="dt_final" name="dt_final" placeholder="99/99/9999" value="${reserva.dtFimReserva}" />
             </div>
           </div>
           <div class="row mTop20">
