@@ -45,6 +45,7 @@ public class Servlet extends HttpServlet {
         Hospedagem hospedagem = new Hospedagem();
         List<Quarto> quarto = new ArrayList<Quarto>();
         FormaPagamento formaPgto = new FormaPagamento();
+        List<ReservaQuarto> reservaQuarto = new ArrayList<>();
 
         try {
             reserva = new ReservaDAO().getCodReserva(Integer.parseInt("cd_cliente"));
@@ -53,7 +54,7 @@ public class Servlet extends HttpServlet {
             produto = new ConsumoDAO().getProduto(Integer.parseInt("cd_hospedagem"));
             servico = new ConsumoDAO().getServico(Integer.parseInt(request.getParameter("cd_hospedagem")));
             //TODO modificar o metodo getQuarto para retornar o quarto de acordo com o cd_reserva
-            quarto = new QuartoDAO().getQuarto(reserva.getCodReserva());
+            reservaQuarto = new QuartoDAO().getQuartos(Integer.parseInt(request.getParameter("CD_RESERVA")));
 
 
 
