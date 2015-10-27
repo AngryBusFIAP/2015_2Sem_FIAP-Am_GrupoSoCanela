@@ -19,8 +19,8 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#checkin">Check In</a></li>
-          <li><a href="checkout.html">Check Out</a></li>
+          <li class="active"><a href="checkin.jsp">Check In</a></li>
+          <li><a href="checkout.jsp">Check Out</a></li>
         </ul>
       </div>
     </div>
