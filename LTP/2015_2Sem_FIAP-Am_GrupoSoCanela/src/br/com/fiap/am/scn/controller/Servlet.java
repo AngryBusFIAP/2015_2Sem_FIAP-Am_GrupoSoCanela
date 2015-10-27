@@ -1,12 +1,10 @@
 package br.com.fiap.am.scn.controller;
 
 import br.com.fiap.am.scn.beans.*;
-import br.com.fiap.am.scn.bo.HospedagemBO;
 import br.com.fiap.am.scn.dao.*;
 import br.com.fiap.am.scn.exception.Excecao;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +19,7 @@ import java.util.List;
  *         on 26/10/15 & 19:27.
  *         ${NAME} é uma classe
  */
-@WebServlet("ServletHotelBoaViagem")
+
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -34,7 +32,6 @@ public class Servlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
     }
 
@@ -77,11 +74,12 @@ public class Servlet extends HttpServlet {
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
 
-        reserva = new ReservaDAO().getReserva(Integer.parseInt(request.getParameter("CD_RESERVA")));
+        reserva = new ReservaDAO().getReserva(Integer.parseInt(request.getParameter("cd_reserva")));
 
-        quarto = new QuartoDAO().getQuarto(Integer.parseInt(request.getParameter("NR_QUARTO")));
+//        quarto = new QuartoDAO().getQuarto(reserva.getQuarto().getNumero());
 
-        cliente = new ClienteDAO().getClienteCPF(Integer.parseInt(request.getParameter("NR_CPF")));
+        cliente = new ClienteDAO().getClienteCPF(reserva.getCliente().getCpf());
+                //Integer.parseInt(request.getParameter("nr_cpf")));
 
         Hospedagem hospedagem = new Hospedagem();
         hospedagem.setQuarto(quarto);

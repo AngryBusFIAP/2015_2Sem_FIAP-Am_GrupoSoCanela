@@ -31,7 +31,7 @@
   <div class="container">
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
-      <form action="ServletHotelBoaViagem" method="post">
+      <form action="Checkin" method="post">
         <input type="hidden" name="checkin">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
