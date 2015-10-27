@@ -14,6 +14,8 @@ public class Quarto {
 
 	private int capacidade;
 
+	private HistoricoValor valorQuarto;
+
 	public Quarto() {
 		super();
 	}
@@ -59,4 +61,11 @@ public class Quarto {
 		this.capacidade = capacidade;
 	}
 
+	public HistoricoValor getValorQuarto() {
+		return valorQuarto;
+	}
+
+	public void setValorQuarto(HistoricoValor valorQuarto) {
+		this.valorQuarto = valorQuarto;
+	}
 }

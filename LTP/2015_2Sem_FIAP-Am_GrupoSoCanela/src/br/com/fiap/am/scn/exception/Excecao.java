@@ -26,23 +26,23 @@ public class Excecao extends Exception{
             System.out.println("Valor informado inv�lido");
         }
         if(e.getClass().toString().equals("class java.lang.FileNotFoundException")){
-            System.out.println("O arquivo informado n�o foi encontrado");
+            System.out.println("O arquivo informado nao foi encontrado");
         }
         if(e.getClass().toString().equals("class java.lang.ArrayIndexOutofBounds")){
-            System.out.println("Valor do array inv�lido");
+            System.out.println("Valor do array invalido");
         }
         if(e.getClass().toString().equals("class java.lang.IllegalArgumentException")){
-            System.out.println("Valor inv�lido");
+            System.out.println("Valor invalido");
         }else{
             System.out.println("Erro inesperado, contate o suporte!\n" + e);
         }
     }
 
     public Excecao(SQLException e){
-        e.printStackTrace();
+        System.out.println("Erro inesperado com o banco de dados.\n"+e);
     }
 
     public Excecao(ClassNotFoundException e) {
-        System.out.println("Driver do JDBC n�o encontrado no projeto");
+        System.out.println("Driver do JDBC nao encontrado no projeto");
     }
 }
