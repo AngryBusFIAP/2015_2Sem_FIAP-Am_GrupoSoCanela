@@ -33,8 +33,7 @@ public class TesteHospedagemDAO {
             System.out.println(new HospedagemBO().verifDtEntrada(1));
             Calendar hoje = Calendar.getInstance();
             Calendar dtReserva = Calendar.getInstance();
-            dtReserva.setTime(dateFormat.parse(new ReservaDAO().getDataReserva(1).substring(0, 10)));
-            System.out.println(dateFormat.format(dtReserva.getTime()));
+
 
 
         } catch (ParseException e) {
