@@ -1,17 +1,18 @@
 package br.com.fiap.am.scn.controller;
 
 import br.com.fiap.am.scn.beans.*;
-import br.com.fiap.am.scn.dao.ConsumoDAO;
-import br.com.fiap.am.scn.dao.HospedagemDAO;
-import br.com.fiap.am.scn.dao.QuartoDAO;
-import br.com.fiap.am.scn.dao.ReservaDAO;
+import br.com.fiap.am.scn.bo.HospedagemBO;
+import br.com.fiap.am.scn.dao.*;
 import br.com.fiap.am.scn.exception.Excecao;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by
@@ -20,9 +21,15 @@ import java.io.IOException;
  *         on 26/10/15 & 19:27.
  *         ${NAME} é uma classe
  */
-
+@WebServlet("ServletHotelBoaViagem")
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            registrarCheckin(request, response);
+        } catch (Excecao excecao) {
+            excecao.printStackTrace();
+        }
 
     }
 
@@ -31,7 +38,7 @@ public class Servlet extends HttpServlet {
 
     }
 
-    public void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) throws Excecao{
+    public void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) throws Excecao {
 
         Reserva reserva = new Reserva();
         Cliente cliente = new Cliente();
@@ -54,14 +61,46 @@ public class Servlet extends HttpServlet {
             reservaQuarto = new QuartoDAO().getQuartos(Integer.parseInt(request.getParameter("CD_RESERVA")));
 
 
-
 //            formaPgto =
 
 
         } catch (Exception e) {
             throw new Excecao(e);
         }
-
     }
 
+    public void registrarCheckin(HttpServletRequest request, HttpServletResponse response) throws Excecao {
+
+
+        Reserva reserva = new Reserva();
+        Quarto quarto = new Quarto();
+        Cliente cliente = new Cliente();
+        Funcionario funcionario = new Funcionario();
+
+        reserva = new ReservaDAO().getReserva(Integer.parseInt(request.getParameter("CD_RESERVA")));
+
+        quarto = new QuartoDAO().getQuarto(Integer.parseInt(request.getParameter("NR_QUARTO")));
+
+        cliente = new ClienteDAO().getClienteCPF(Integer.parseInt(request.getParameter("NR_CPF")));
+
+        Hospedagem hospedagem = new Hospedagem();
+        hospedagem.setQuarto(quarto);
+        hospedagem.setReserva(reserva);
+        hospedagem.setCliente(cliente);
+        hospedagem.setFuncionario(funcionario);
+        hospedagem.setDtEntrada(request.getParameter("27/10/2015"));
+        hospedagem.setDtSaida(request.getParameter("30/10/2015"));
+        hospedagem.setPercDesconto(0);
+
+        new HospedagemDAO().confirmHosp(hospedagem);
+
+        request.setAttribute("hospedagem", hospedagem);
+        try {
+            request.getRequestDispatcher("resultado.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
