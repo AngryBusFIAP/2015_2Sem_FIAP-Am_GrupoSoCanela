@@ -6,7 +6,7 @@ package br.com.fiap.am.scn.beans;
  */
 public class Pagamento {
 
-	private int codHospedagem;
+	private Hospedagem codHospedagem;
 
 	private String dtPagamento;
 
@@ -18,7 +18,7 @@ public class Pagamento {
 		super();
 	}
 
-	public Pagamento(int codHospedagem, String dtPagamento,
+	public Pagamento(Hospedagem codHospedagem, String dtPagamento,
 			FormaPagamento formaPagamento, double valor) {
 		super();
 		this.codHospedagem = codHospedagem;
@@ -27,11 +27,11 @@ public class Pagamento {
 		this.valor = valor;
 	}
 
-	public int getCodHospedagem() {
+	public Hospedagem getCodHospedagem() {
 		return codHospedagem;
 	}
 
-	public void setCodHospedagem(int codHospedagem) {
+	public void setCodHospedagem(Hospedagem codHospedagem) {
 		this.codHospedagem = codHospedagem;
 	}
 

@@ -4,24 +4,24 @@ package br.com.fiap.am.scn.beans;
  * Classe Beans para Tipo de Pagamento
  */
 public class TipoPagamento {
-	private short codTipoFormaPag;
+	private int codTipoFormaPag;
 	private String desFormaPag;
 	
 	public TipoPagamento() {
 		super();
 	}
 
-	public TipoPagamento(short codTipoFormaPag, String desFormaPag) {
+	public TipoPagamento(int codTipoFormaPag, String desFormaPag) {
 		super();
 		this.codTipoFormaPag = codTipoFormaPag;
 		this.desFormaPag = desFormaPag;
 	}
 
-	public short getCodTipoFormaPag() {
+	public int getCodTipoFormaPag() {
 		return codTipoFormaPag;
 	}
 
-	public void setCodTipoFormaPag(short codTipoFormaPag) {
+	public void setCodTipoFormaPag(int codTipoFormaPag) {
 		this.codTipoFormaPag = codTipoFormaPag;
 	}
 

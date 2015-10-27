@@ -1,7 +1,9 @@
 package br.com.fiap.am.scn.dao;
 
 import br.com.fiap.am.scn.beans.FormaPagamento;
+import br.com.fiap.am.scn.beans.Hospedagem;
 import br.com.fiap.am.scn.beans.Pagamento;
+import br.com.fiap.am.scn.beans.TipoPagamento;
 import br.com.fiap.am.scn.connection.ConexaoFactory;
 import br.com.fiap.am.scn.exception.Excecao;
 
@@ -28,18 +30,32 @@ public class PagamentoDAO {
 
     public String confPagamento(Pagamento pagamento) throws Excecao{
 
-        String sql = "INSERT INTO T_AM_SCN_PAGAMENTO VALUES(SQ_SCN)";
+        Hospedagem hospedagem = new Hospedagem();
+        FormaPagamento formaPagamento = new FormaPagamento();
+
+
+        String sql = "INSERT INTO T_AM_SCN_PAGAMENTO VALUES(?,?,?,?)";
 
         try{
-        PreparedStatement ps = c.prepareStatement(sql);
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1, pagamento.getCodHospedagem().getCodHospedagem());
+            pagamento.setCodHospedagem(hospedagem);
+            ps.setInt(2, pagamento.getFormaPagamento().getCodigo());
+            pagamento.setTipo(formaPagamento);
+            ps.setString(3, pagamento.getDtPagamento());
+            ps.setDouble(4, pagamento.getValor());
+            ps.execute();
+            ps.close();
         }catch (SQLException e){
             throw new Excecao(e);
         }
-        return "a";
+        return "Pagamento confirmado com sucesso";
     }
 
 
     public Pagamento getPagamento(int codigo)throws Excecao{
+
+        Hospedagem hospedagem = new Hospedagem();
         Pagamento pagamento = new Pagamento();
         FormaPagamento formaPagamento = new FormaPagamento();
 
@@ -48,7 +64,8 @@ public class PagamentoDAO {
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                pagamento.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
+                hospedagem.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
+                pagamento.setCodHospedagem(hospedagem);
                 formaPagamento.setCodigo(rs.getInt("CD_TIPO_FORMAPAG"));
                 pagamento.setDtPagamento(rs.getString("DT_PAGAMENTO"));
                 pagamento.setValor(rs.getDouble("VL_PAGAMENTO"));
