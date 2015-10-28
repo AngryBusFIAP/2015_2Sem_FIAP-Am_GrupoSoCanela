@@ -27,7 +27,7 @@ public class PagamentoBO {
     }
 
     public double valorTotal(Cliente cliente) throws Excecao{
-        return valorHosp(cliente) + valorProd(cliente) + valorServ(cliente);
+        return valorHosp(cliente) + valorProd(cliente) + valorServ(cliente) * 0.95;
     }
 
 
@@ -61,6 +61,7 @@ public class PagamentoBO {
         for (ReservaQuarto reservaQuarto : quartos) {
             Quarto quarto = reservaQuarto.getQuarto();
             valorHosp += (quarto.getValorQuarto().getVl_preco_quarto());
+
         }
         return valorHosp;
     }

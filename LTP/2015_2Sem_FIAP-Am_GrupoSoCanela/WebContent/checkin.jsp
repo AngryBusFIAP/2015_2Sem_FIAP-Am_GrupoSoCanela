@@ -88,7 +88,7 @@
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value=""/>
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value="${reserva.quarto.andar}"/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-4">
               <label for="nr_quarto">Nr Quarto</label>
-              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" />
+              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" value="${reserva.quarto.numero}" />
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-4">
               <label for="name">Nome</label>
-              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value=""/>
+              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value="${reserva.cliente.nome}"/>
             </div>
             <div class="col-md-4">
               <label for="rg">RG</label>

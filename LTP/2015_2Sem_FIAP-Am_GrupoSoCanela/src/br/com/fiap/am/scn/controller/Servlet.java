@@ -62,6 +62,7 @@ public class Servlet extends HttpServlet {
         reserva.setDtSolicitacao(mudaData(reserva.getDtSolicitacao()));
         reserva.setDtInicioReserva(mudaData(reserva.getDtInicioReserva()));
         reserva.setDtFimReserva(mudaData(reserva.getDtFimReserva()));
+        reserva.getCliente().setDtNascimento(mudaData(reserva.getCliente().getDtNascimento()));
         request.setAttribute("reserva", reserva);
         request.setAttribute("cliente", cliente);
         request.setAttribute("quarto", quarto);
@@ -126,5 +127,14 @@ public class Servlet extends HttpServlet {
         hospedagem.setPercDesconto(Double.parseDouble(request.getParameter("vc_perc_desconto")));
 
         new HospedagemBO().confirmHosp(hospedagem);
+    }
+
+    public void buscarHospedagem (HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
+
+        Hospedagem hospedagem = new Hospedagem();
+
+        hospedagem = new HospedagemDAO().getHospedagem(Integer.parseInt("cd_hospedagem"));
+
+
     }
 }
