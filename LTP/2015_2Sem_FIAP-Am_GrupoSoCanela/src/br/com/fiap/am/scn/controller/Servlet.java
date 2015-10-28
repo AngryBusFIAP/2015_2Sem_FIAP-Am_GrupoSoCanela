@@ -47,6 +47,7 @@ public class Servlet extends HttpServlet {
         Cliente cliente = new Cliente();
         ClienteDAO clienteDAO = new ClienteDAO();
         Funcionario funcionario = new Funcionario();
+        Pessoa pessoa = new Pessoa();
 
         Hospedagem hospedagem = new Hospedagem();
 
@@ -54,6 +55,7 @@ public class Servlet extends HttpServlet {
         request.setAttribute("reserva", idRes);
         request.setAttribute("cliente", cliente);
         request.setAttribute("quarto", quarto);
+        request.setAttribute("pessoa", pessoa);
 
 //        Cliente idCliente = clienteDAO.getClienteCPF(Integer.parseInt(request.getParameter("cpf")));
 //        request.setAttribute("cliente", idCliente);

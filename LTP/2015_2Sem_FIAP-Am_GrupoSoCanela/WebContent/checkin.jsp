@@ -78,17 +78,17 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cd_tipo_quarto">Tipo do quarto</label>
-              <select class="form-control" id="cd_tipo_quarto" name="cd_tipo_quarto">
-                <option>Selecione o tipo de quarto</option>
-                <option value="1">Single</option>
-                <option value="2">Double</option>
-                <option value="3">Suíte de Luxo</option>
-                <option value="4">Suíte presidencial</option>
-              </select>
+              <input class="form-control" id="cd_tipo_quarto" name="cd_tipo_quarto" value="${reserva.quarto.tipo.descricao}"/>
+                <%--<option>Selecione o tipo de quarto</option>--%>
+                <%--<option value="1">Single</option>--%>
+                <%--<option value="2">Double</option>--%>
+                <%--<option value="3">Suíte de Luxo</option>--%>
+                <%--<option value="4">Suíte presidencial</option>--%>
+              <%--</select>--%>
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value=""/>
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value="${reserva.quarto.andar}"/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-4">
               <label for="nr_quarto">Nr Quarto</label>
-              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" />
+              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" value="${reserva.quarto.numero}" />
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-4">
               <label for="name">Nome</label>
-              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value=""/>
+              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value="${reserva.cliente.nome}"/>
             </div>
             <div class="col-md-4">
               <label for="rg">RG</label>
