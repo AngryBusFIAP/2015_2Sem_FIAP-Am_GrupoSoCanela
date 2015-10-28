@@ -26,7 +26,6 @@
     </div>
   </nav>
 
-
   <div class="container">
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>

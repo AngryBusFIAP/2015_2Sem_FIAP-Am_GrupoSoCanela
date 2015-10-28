@@ -3,7 +3,7 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para Historico de Valor dos Tipos de Quartos
  * 
- * @see br.com.fiap.am.scn.beans.TipoQuarto;
+ * @see {@link br.com.fiap.am.scn.beans.TipoQuarto}
  */
 public class HistoricoValor {
 	private int codigoHistValor;

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 19/10/2015.
+ * Classe de acesso de dados de Pessoa
  */
 public class PessoaDAO {
 
@@ -23,7 +23,14 @@ public class PessoaDAO {
             throw new Excecao(e);
         }
     }
-
+    
+    /**
+     * Metodo para cadastrar Pessoa
+     * @param pessoa
+     * @return String com o resultado da operacao
+     * @throws Excecao
+     * @deprecated
+     */
     public String cadastrarPessoa(Pessoa pessoa) throws Excecao {
 
         String sql = "INSERT INTO T_AM_SCN_PESSOA VALUES (SQ_SCN_PESSOA.NEXTVAL, ?)";
@@ -40,6 +47,14 @@ public class PessoaDAO {
         return "Pessoa cadastrada com sucesso";
     }
 
+    /**
+     * Metodo para atualizar Pessoa no banco de dados
+     * @param idPessoa
+     * @param nomePessoa
+     * @return String com o resultado da operacao
+     * @throws Excecao
+     * @deprecated
+     */
     public String atualizarPessoa(int idPessoa, String nomePessoa) throws Excecao{
 
         String sql = "UPDATE T_AM_SCN_PESSOA SET CD_PESSOA = ? WHERE CD_PESSOA = ?";
@@ -56,6 +71,13 @@ public class PessoaDAO {
         }
     }
 
+    /**
+     * Metodo para deletar pessoa do banco de dados
+     * @param idPessoa
+     * @return int com o numero de linhas afetadas
+     * @throws Excecao
+     * @deprecated
+     */
     public int deletarPessoa(int idPessoa) throws Excecao{
 
         String sql = "DELETE FROM T_AM_SCN_PESSOA WHERE CD_PESSOA = ?";
@@ -71,6 +93,12 @@ public class PessoaDAO {
         }
     }
 
+    /**
+     * Metodo para buscar Pessoa no banco de Dados utilizando o codigo
+     * @param codigo - Codigo da Pessoa
+     * @return Objeto pessoa
+     * @throws Excecao
+     */
     public Pessoa getPessoa(int codigo) throws Excecao{
         Pessoa pessoa = new Pessoa();
         try {
@@ -88,6 +116,12 @@ public class PessoaDAO {
         return pessoa;
     }
 
+    /**
+     * Busca a pessoa no banco de dados pelo nome da Pessoa
+     * @param pNome - Nome da Pessoa
+     * @return Objeto Pessoa
+     * @throws Excecao
+     */
     public Pessoa getPessoaNome(String pNome) throws Excecao{
         Pessoa pessoa = new Pessoa();
         try {

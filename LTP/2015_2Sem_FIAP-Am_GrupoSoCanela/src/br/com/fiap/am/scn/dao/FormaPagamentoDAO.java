@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 26/10/2015.
+ * Classe de acesso de dados da Forma de pagamento
  */
 public class FormaPagamentoDAO {
 
@@ -25,7 +25,12 @@ public class FormaPagamentoDAO {
         }
     }
 
-
+    /**
+    * Busca a forma de pagamento pelo codigo da forma de pagamento 
+     * @param codigo - codigo da forma de pagamento
+     * @return Objeto Forma de Pagamento
+     * @throws Excecao
+     */
     public FormaPagamento getFormaPagamento(int codigo) throws Excecao{
 
         FormaPagamento fp = new FormaPagamento();

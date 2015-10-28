@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de Acesso de Dados do TipoQuarto
  */
 public class TipoQuartoDAO {
 
@@ -25,6 +25,12 @@ public class TipoQuartoDAO {
         }
     }
 
+    /**
+     * Busca o tipo de quarto utilizando o codigo do tipo
+     * @param codigo - Codigo do Tipo de Quarto
+     * @return Objeto TipoQuarto
+     * @throws Excecao
+     */
     public TipoQuarto getTipoQuarto(int codigo) throws Excecao{
 
         TipoQuarto tipoQuarto = new TipoQuarto();

@@ -12,7 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de acesso de dados do Pagamento;
+ * @see {@link br.com.fiap.am.scn.beans.Pagamento}
  */
 public class PagamentoDAO {
 
@@ -27,6 +28,12 @@ public class PagamentoDAO {
         }
     }
 
+    /**
+     * Metodo para cadastrar o pagamento no banco
+     * @param pagamento - Objeto pagamento
+     * @return String mostrando se foi cadastrado ou nao
+     * @throws Excecao
+     */
     public String confPagamento(Pagamento pagamento) throws Excecao{
 
         String sql = "INSERT INTO T_AM_SCN_PAGAMENTO VALUES(?,?,?,?)";
@@ -47,7 +54,12 @@ public class PagamentoDAO {
         return "Pagamento confirmado com sucesso";
     }
 
-
+    /**
+     * Busca o pagamento pelo codigo da Hospedagem
+     * @param codHospedagem
+     * @return Objeto Pagamento
+     * @throws Excecao
+     */
     public Pagamento getPagamento(int codHospedagem)throws Excecao{
 
         Hospedagem hospedagem = new Hospedagem();

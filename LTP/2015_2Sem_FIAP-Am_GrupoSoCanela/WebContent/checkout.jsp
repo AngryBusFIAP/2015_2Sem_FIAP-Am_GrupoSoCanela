@@ -31,8 +31,6 @@
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check Out</h3></legend>
       <form action="checkout" method="post">
-        <input type="hidden"/>
-        <h4>Informações da hospedagem</h4>
         <div class="form-group mTop20">
           <div class="row">
             <div class="col-md-4">
@@ -40,10 +38,26 @@
               <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
             </div>
             <div class="col-md-4 mTop20">
-                <input type="submit" value="Buscar" class="btn btn-primary raised">
+              <input type="submit" value="Buscar" class="btn btn-primary raised">
+            </div>
+          </div>
+
+          <br>
+          <h4 class="mTop20">Informações do cliente</h4>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="cpf">CPF</label>
+              <input class="form-control" id="cpf" name="cpf" placeholder="999.999.999-99" value="${hospedagem.cliente.cpf}"/>
+            </div>
+            <div class="col-md-4">
+              <label for="name">Nome</label>
+              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value="${hospedagem.cliente.nome}"/>
             </div>
           </div>
         </div>
+
+        <br>
+        <h4>Informações da hospedagem</h4>
         <div class="row mTop20">
           <div class="col-md-3">
             <label for="nr_quarto">Nº do quarto</label>
@@ -59,32 +73,7 @@
           </div>
           <div class="col-md-3">
             <label for="perc_desconto">Percentual de desconto</label>
-            <input class="form-control" id="perc_desconto" name="perc_desconto" placeholder="Percentual" type="number" value="${hospedagem.percDesconto}" />
-          </div>
-        </div>
-
-        <br>
-        <h4 class="mTop20">Informações do cliente</h4>
-        <div class="form-group mTop20">
-          <div class="row">
-            <div class="col-md-4">
-              <label for="cpf">CPF</label>
-              <input class="form-control" id="cpf" name="cpf" placeholder="999.999.999-99" value="${hospedagem.cliente.cpf}"/>
-            </div>
-            <div class="col-md-4">
-              <label for="name">Nome</label>
-              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value="${hospedagem.cliente.nome}"/>
-            </div>
-            <div class="col-md-4">
-              <label for="rg">RG</label>
-              <input class="form-control" id="rg" name="rg" placeholder="RG do cliente" value="${hospedagem.cliente.rg}"/>
-            </div>
-          </div>
-          <div class="row mTop20">
-            <div class="col-md-4">
-              <label for="dt_nascimento">Data de nascimento</label>
-              <input class="form-control" id="birthday" id="dt_nascimento" name="dt_nascimento" placeholder="99/99/9999" value="${hospedagem.cliente.dtNascimento}"/>
-            </div>
+            <input class="form-control" id="perc_desconto" name="perc_desconto" placeholder="Percentual" type="number" value="${empty hospedagem.percDesconto ? 0 : hospedagem.percDesconto}" />
           </div>
         </div>
 
@@ -109,7 +98,7 @@
         </div>
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
-            <input type="hidden" value="checkout" name="veioDe">
+            <input type="hidden" value="1" name="cd_funcionario">
             <input type="submit" value="Realizar Check Out" class="btn btn-primary raised">
           </div>
           <div class="col-lg-6 mTop20">

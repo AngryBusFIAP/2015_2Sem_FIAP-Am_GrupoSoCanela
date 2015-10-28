@@ -3,7 +3,7 @@ package br.com.fiap.am.scn.exception;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 19/10/2015.
+ * Classe de tratamento de erros
  */
 public class Excecao extends Exception{
 

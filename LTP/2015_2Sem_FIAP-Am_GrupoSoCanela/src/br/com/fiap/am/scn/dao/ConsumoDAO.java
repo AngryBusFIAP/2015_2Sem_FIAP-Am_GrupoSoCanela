@@ -30,6 +30,13 @@ public class ConsumoDAO {
         }
     }
 
+    /**
+     * Busca o produtos consumidos pelo codigo da Hospedagem
+     * @param codHospedagem
+     * @return Lista com o produtos consumidos
+     * @throws Excecao
+     * 
+     */
     public List<Consumo> getProduto(int codHospedagem) throws Excecao{
 
         List<Consumo> consumos = new ArrayList<Consumo>();
@@ -82,6 +89,12 @@ public class ConsumoDAO {
         return consumos;
     }
 
+    /**
+     * Busca os servicos consumidos pelo codigo da Hospedagem
+     * @param codHospedagem
+     * @return Lista com os servicos consumidos
+     * @throws Excecao
+     */
     public List<Consumo> getServico(int codHospedagem) throws Excecao{
 
         List<Consumo> consumos = new ArrayList<Consumo>();
