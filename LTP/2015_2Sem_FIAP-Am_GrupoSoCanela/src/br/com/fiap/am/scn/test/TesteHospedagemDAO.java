@@ -57,7 +57,7 @@ public class TesteHospedagemDAO {
         h.setCliente(c);
 
         f = fDAO.getFuncionario(8);
-      h.setFuncionario(f);
+        h.setFuncionario(f);
 
         h.setDtEntrada("27/10/2015");
         h.setDtSaida("30/10/2015");
@@ -75,10 +75,11 @@ public class TesteHospedagemDAO {
 
 //        h.setQuarto(q.setNumero(1));
 //
-//        h = hDAO.getHospedagem(9);
-//        System.out.println(h.getCodHospedagem() + "\n" + h.getQuarto().getNumero() + "\n" + h.getReserva().getCodReserva() + "\n" +
-//        h.getCliente().getId() + "\n" + h.getFuncionario().getId() + "\n" + h.getDtEntrada() + "\n" + h.getDtSaida() + "\n"
-//        + h.getPercDesconto());
+        Pagamento p = new Pagamento();
+        h = hDAO.getHospedagem(9);
+        System.out.println(h.getFuncionario().getCodFuncionario());
+
+
 
     }
 

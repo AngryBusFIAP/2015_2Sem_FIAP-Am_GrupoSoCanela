@@ -47,6 +47,18 @@ public class Servlet extends HttpServlet {
             }
         }
 
+        if(request.getParameter("metodo").equalsIgnoreCase("hospedagem")){
+            try{
+                buscarHospedagem(request,response);
+            }catch (Exception e){
+                try{
+                    throw new Excecao("Problemas na servlet!\n" + e );
+                }catch (Excecao excecao){
+                    excecao.printStackTrace();
+                }
+            }
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -131,9 +143,18 @@ public class Servlet extends HttpServlet {
 
     public void buscarHospedagem (HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
 
-        Hospedagem hospedagem = new Hospedagem();
+        Quarto quarto = new Quarto();
+        Cliente cliente = new Cliente();
+        Pagamento pagamento = new Pagamento();
 
-        hospedagem = new HospedagemDAO().getHospedagem(Integer.parseInt("cd_hospedagem"));
+        Hospedagem hospedagem = new HospedagemDAO().getHospedagem(Integer.parseInt("cd_hospedagem"));
+        request.setAttribute("hospedagem", hospedagem);
+        request.setAttribute("quarto", quarto);
+        request.setAttribute("cliente", cliente);
+        request.setAttribute("pagamento", pagamento);
+
+        request.getRequestDispatcher("checkout.jsp").forward(request,response);
+
 
 
     }

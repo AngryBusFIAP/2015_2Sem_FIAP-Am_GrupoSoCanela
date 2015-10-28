@@ -29,15 +29,17 @@ public class Hospedagem {
 	private Quarto quarto;
 
 	private Funcionario funcionario;
+
+	private Pagamento pagamento;
 	
 	public Hospedagem() {
 		super();
 	}
 	
 	public Hospedagem(int codHospedagem, String dtHospedagem,
-			 String dtEntrada, String dtSaida,
-			double percDesconto, Consumo consumo, Cliente cliente,
-			Reserva reserva, Quarto quarto, Funcionario funcionario) {
+					  String dtEntrada, String dtSaida,
+					  double percDesconto, Consumo consumo, Cliente cliente,
+					  Reserva reserva, Quarto quarto, Funcionario funcionario, Pagamento pagamento) {
 		super();
 		this.codHospedagem = codHospedagem;
 		this.dtHospedagem = dtHospedagem;
@@ -49,6 +51,7 @@ public class Hospedagem {
 		this.reserva = reserva;
 		this.quarto = quarto;
 		this.funcionario = funcionario;
+		this.pagamento = pagamento;
 	}
 
 	
@@ -133,6 +136,14 @@ public class Hospedagem {
 		this.funcionario = funcionario;
 	}
 
+	public Pagamento getPagamento(){
+		return pagamento;
+	}
+
+	public void setPagamento(Pagamento pagamento){
+		this.pagamento = pagamento;
+	}
+
 	public String gerarCodigo() {
 		return null;
 	}
@@ -140,5 +151,6 @@ public class Hospedagem {
 	public boolean validarData() {
 		return false;
 	}
+
 
 }

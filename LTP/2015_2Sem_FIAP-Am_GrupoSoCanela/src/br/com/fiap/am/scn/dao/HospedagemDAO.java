@@ -76,9 +76,18 @@ public class HospedagemDAO {
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
         Reserva reserva = new Reserva();
+        Pagamento pagamento = new Pagamento();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM = ?");
+            PreparedStatement ps = connection.prepareStatement("SELECT H.CD_HOSPEDAGEM, Q.NR_QUARTO, R.CD_RESERVA, C.CD_CLIENTE, "
+                    + "P.NM_PESSOA, C.NR_CPF, C.NR_RG, C.DT_NASCIMENTO, H.DT_ENTRADA, H.DT_SAIDA, H.VC_PERC_DESCONTO, PAG.VL_PAGAMENTO "
+                    + "FROM T_AM_SCN_HOSPEDAGEM H "
+                    + "JOIN T_AM_SCN_QUARTO Q ON Q.NR_QUARTO = H.NR_QUARTO "
+                    + "JOIN T_AM_SCN_RESERVA R ON R.CD_RESERVA = H.CD_RESERVA "
+                    + "JOIN T_AM_SCN_CLIENTE C ON C.CD_CLIENTE = H.CD_CLIENTE "
+                    + "JOIN T_AM_SCN_PESSOA P ON P.CD_PESSOA = C.CD_CLIENTE "
+                    + "JOIN T_AM_SCN_PAGAMENTO PAG ON PAG.CD_HOSPEDAGEM = H.CD_HOSPEDAGEM "
+                    + " WHERE H.CD_HOSPEDAGEM = ?");
             ps.setInt(1, codHospedagem);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
@@ -86,10 +95,16 @@ public class HospedagemDAO {
                 quarto.setNumero(rs.getInt("NR_QUARTO"));
                 reserva.setCodReserva(rs.getInt("CD_RESERVA"));
                 cliente.setId(rs.getInt("CD_CLIENTE"));
-                funcionario.setId(rs.getInt("CD_FUNCIONARIO"));
+                cliente.setNome(rs.getString("NM_PESSOA"));
+                cliente.setCpf(rs.getLong("NR_CPF"));
+                cliente.setRg(rs.getString("NR_RG"));
+                cliente.setDtNascimento(rs.getString("DT_NASCIMENTO"));
+               // funcionario.setId(rs.getInt("CD_FUNCIONARIO"));
                 hospedagem.setDtEntrada(rs.getString("DT_ENTRADA"));
                 hospedagem.setDtSaida(rs.getString("DT_SAIDA"));
                 hospedagem.setPercDesconto(rs.getDouble("VC_PERC_DESCONTO"));
+                pagamento.setValor(rs.getDouble("VL_PAGAMENTO"));
+                hospedagem.setPagamento(pagamento);
                 hospedagem.setQuarto(quarto);
                 hospedagem.setReserva(reserva);
                 hospedagem.setCliente(cliente);

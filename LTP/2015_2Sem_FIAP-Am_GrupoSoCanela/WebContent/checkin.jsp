@@ -37,7 +37,7 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
-              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
+              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" value="${reserva.codReserva}"/>
               <input type="submit" value="Buscar" class="btn btn-primary raised">
               </div>
             </div>
