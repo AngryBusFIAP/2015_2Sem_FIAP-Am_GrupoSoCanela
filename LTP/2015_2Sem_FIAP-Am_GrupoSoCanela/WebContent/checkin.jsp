@@ -15,7 +15,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Hotel Boa Viagem</a>
+        <a class="navbar-brand" href="index.jsp">Hotel Boa Viagem</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -37,8 +37,9 @@
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
               <input class="form-control" id="cd_reserva" value="${reserva.codReserva}" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
+            </div>
+            <div class="col-md-4 mTop20">
               <input type="submit" value="Buscar" class="btn btn-primary raised">
-              </div>
             </div>
           </div>
           <div class="row mTop20">
