@@ -102,22 +102,22 @@ public class ReservaDAO {
     }
 
     public Reserva getCodReserva(int idCliente) throws Excecao{
-        Reserva r = new Reserva();
+        Reserva reserva = new Reserva();
 
         String strDtReserva = null;
         try{
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM T_AM_SCN_RESERVA WHERE CD_CLIENTE = ?");
             statement.setDouble(1, idCliente);
-            ResultSet rs = statement.executeQuery();
-            if(rs.next()){
-                r.setCodReserva(rs.getInt("CD_RESERVA"));
-                r.setDtSolicitacao(rs.getString("DT_SOLICITACAO"));
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                reserva.setCodReserva(resultSet.getInt("CD_RESERVA"));
+                reserva.setDtSolicitacao(resultSet.getString("DT_SOLICITACAO"));
             }
 
         }catch(SQLException e){
             throw new Excecao(e);
         }
-        return r;
+        return reserva;
     }
 
     public String getDataReserva(int codReserva) throws Excecao{

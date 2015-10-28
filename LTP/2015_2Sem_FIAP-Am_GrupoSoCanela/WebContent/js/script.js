@@ -12,4 +12,14 @@ $(document).ready(function(){
     var cd_reserva = this.value;
     // todo create a ajax request to get all informations
   })
+
+    $("#btnConf").click(function(){
+        $("#metodo").val("confirmar");
+        alert($("#metodo").val());
+
+    })
 });
+
+//function confirmCheckin(){
+//    document.getElementById("metodo").value = "confirmar";
+//}
