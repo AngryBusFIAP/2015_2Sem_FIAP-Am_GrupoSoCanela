@@ -30,7 +30,7 @@
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
       <form action="Checkin" method="post">
-        <input type="hidden" id="metodo" value="buscar" name="metodo">
+        <input type="hidden" id="metodoCheckin" value="buscarReserva" name="metodo">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
@@ -126,7 +126,8 @@
               <label for="nr_quarto_preferido">Nº quarto preferido</label>
               <input class="form-control" id="nr_quarto_preferido" name="nr_quarto_preferido" placeholder="Nº quarto preferido" type="number" value="${reserva.cliente.quartoPreferido}"/>
             </div>
-            <div class="col-md-4"><label for="vc_perc_desconto">Percentual de Desconto</label>
+            <div class="col-md-4">
+              <label for="vc_perc_desconto">Percentual de Desconto</label>
               <input type="number" min="0" max="5" class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" value="${hospedagem.vc_perc_desconto}">
             </div>
           </div>
@@ -134,7 +135,7 @@
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
             <input type="hidden" value="8" name="cd_funcionario">
-            <input type="submit" id="btnConf" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
+            <input type="submit" id="btnCheckin" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
           </div>
           <div class="col-lg-6 mTop20">
             <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form" required>

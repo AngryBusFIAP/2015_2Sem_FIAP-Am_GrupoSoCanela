@@ -15,7 +15,11 @@ $(document).ready(function(){
 
     $("#clear-form").on('click', function(){ $("#cd_reserva").focus(); })
 
-    $("#btnConf").click(function(){
-        $("#metodo").val("confirmar");
+    $("#btnCheckin").click(function(){
+        $("#metodo").val("confirmarCheckin");
+    });
+
+    $("#btnCheckout").click(function(){
+        $("#metodo").val("confirmarCheckout");
     });
 });

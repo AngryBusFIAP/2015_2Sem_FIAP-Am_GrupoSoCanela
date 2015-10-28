@@ -23,32 +23,26 @@ import java.io.IOException;
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        if (request.getParameter("metodo").equalsIgnoreCase("buscar")) {
+        if(request.getParameter("metodo").equalsIgnoreCase("buscarReserva")) {
             try {
                 buscarReserva(request, response);
             } catch (Excecao e) {
                 e.printStackTrace();
             }
-        } else {
-            if (request.getParameter("metodo").contains("confirmar")) {
-                try {
-                    inserirHospedagem(request, response);
-                } catch (Excecao e) {
-                    e.printStackTrace();
-                }
+        } else if (request.getParameter("metodo").contains("confirmarCheckin")){
+            try {
+                inserirHospedagem(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-
-        if(request.getParameter("metodo").equalsIgnoreCase("hospedagem")){
-            try{
-                buscarHospedagem(request,response);
-            }catch (Exception e){
-                try{
-                    throw new Excecao("Problemas na servlet!\n" + e );
-                }catch (Excecao excecao){
-                    excecao.printStackTrace();
-                }
+        } else if (request.getParameter("metodo").contains("buscarHospedagem")) {
+            try {
+                buscarHospedagem(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        } else if (request.getParameter("metodo").contains("confirmarCheckout")) {
+            // todo chamar o metodo que finaliza o checkout
         }
 
     }

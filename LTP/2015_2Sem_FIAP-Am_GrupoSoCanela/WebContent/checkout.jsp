@@ -31,6 +31,7 @@
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check Out</h3></legend>
       <form action="checkout" method="post">
+        <input type="hidden" id="metodoCheckout" value="buscarHospedagem" name="metodo">
         <div class="form-group mTop20">
           <div class="row">
             <div class="col-md-4">
@@ -72,8 +73,8 @@
             <input class="form-control" id="dt_saida" name="dt_saida" placeholder="99/99/9999" value="${hospedagem.dtSaida}" />
           </div>
           <div class="col-md-3">
-            <label for="perc_desconto">Percentual de desconto</label>
-            <input class="form-control" id="perc_desconto" name="perc_desconto" placeholder="Percentual" type="number" value="${empty hospedagem.percDesconto ? 0 : hospedagem.percDesconto}" />
+            <label for="vc_perc_desconto">Percentual de desconto</label>
+            <input class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" placeholder="Percentual" type="number" value="${empty hospedagem.percDesconto ? 0 : hospedagem.percDesconto}" />
           </div>
         </div>
 
@@ -99,7 +100,7 @@
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
             <input type="hidden" value="1" name="cd_funcionario">
-            <input type="submit" value="Realizar Check Out" class="btn btn-primary raised">
+            <input type="submit" id="btnCheckout" value="Realizar Check Out" class="btn btn-primary raised">
           </div>
           <div class="col-lg-6 mTop20">
             <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">
