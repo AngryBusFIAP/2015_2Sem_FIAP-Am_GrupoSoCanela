@@ -69,7 +69,7 @@ public class HospedagemDAO {
         return "Hospedagem cadastrada com sucesso";
     }
 
-    public Hospedagem getHospedagem(int codigo) throws Excecao {
+    public Hospedagem getHospedagem(int codHospedagem) throws Excecao {
 
         Hospedagem hospedagem = new Hospedagem();
         Quarto quarto = new Quarto();
@@ -78,8 +78,8 @@ public class HospedagemDAO {
         Reserva reserva = new Reserva();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM =?");
-            ps.setInt(1, codigo);
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_HOSPEDAGEM = ?");
+            ps.setInt(1, codHospedagem);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 hospedagem.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
@@ -101,5 +101,44 @@ public class HospedagemDAO {
             throw new Excecao(e);
         }
         return hospedagem;
+    }
+
+    public Hospedagem getHospedagem(Cliente cliente) throws Excecao {
+
+        Hospedagem hospedagem = new Hospedagem();
+        Quarto quarto = new Quarto();
+        Funcionario funcionario = new Funcionario();
+        Reserva reserva = new Reserva();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM T_AM_SCN_HOSPEDAGEM WHERE CD_CLIENTE = ?");
+            ps.setInt(1, cliente.getId());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                hospedagem.setCodHospedagem(rs.getInt("CD_HOSPEDAGEM"));
+                quarto.setNumero(rs.getInt("NR_QUARTO"));
+                reserva.setCodReserva(rs.getInt("CD_RESERVA"));
+                cliente.setId(rs.getInt("CD_CLIENTE"));
+                funcionario.setId(rs.getInt("CD_FUNCIONARIO"));
+                hospedagem.setDtEntrada(rs.getString("DT_ENTRADA"));
+                hospedagem.setDtSaida(rs.getString("DT_SAIDA"));
+                hospedagem.setPercDesconto(rs.getDouble("VC_PERC_DESCONTO"));
+                hospedagem.setQuarto(quarto);
+                hospedagem.setReserva(reserva);
+                hospedagem.setCliente(cliente);
+                hospedagem.setFuncionario(funcionario);
+                rs.close();
+                ps.close();
+            }
+        } catch (SQLException e) {
+            throw new Excecao(e);
+        }
+        return hospedagem;
+    }
+
+    public double valorHospedagem(Hospedagem hospedagem){
+
+
+        return 1.1;
     }
 }

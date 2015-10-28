@@ -24,13 +24,13 @@ import java.io.IOException;
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        try {
-            buscarReserva(request, response);
-        } catch (Excecao excecao) {
-            excecao.printStackTrace();
+        if(request.getParameter("metodo").equalsIgnoreCase("checkin")) {
+            try {
+                buscarReserva(request, response);
+            } catch (Excecao excecao) {
+                excecao.printStackTrace();
+            }
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,6 +59,7 @@ public class Servlet extends HttpServlet {
 
 //        Cliente idCliente = clienteDAO.getClienteCPF(Integer.parseInt(request.getParameter("cpf")));
 //        request.setAttribute("cliente", idCliente);
+
 
 
 //        Quarto idQuarto = quartoDAO.getQuarto(Integer.parseInt(request.getParameter("nr_quarto")));
