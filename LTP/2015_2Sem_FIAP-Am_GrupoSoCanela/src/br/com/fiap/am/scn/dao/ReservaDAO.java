@@ -28,19 +28,22 @@ public class ReservaDAO {
     }
 
     public Reserva getReserva(int codigoReserva) throws Excecao{
-
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
 
         Reserva reserva = new Reserva();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM T_AM_SCN_RESERVA WHERE CD_RESERVA =?");
+            PreparedStatement statement = connection.prepareStatement("SELECT R.CD_RESERVA, C.CD_CLIENTE, C.NR_CPF, C.NR_RG, R.DT_SOLICITACAO, R.DT_INICIO_RESERVA, "
+                    + "R.DT_FINAL_RESERVA, R.QT_ADULTO, R.QT_CRIANCA, R.ST_RESERVA FROM T_AM_SCN_RESERVA R " +
+                    " JOIN T_AM_SCN_CLIENTE C ON C.CD_CLIENTE = R.CD_CLIENTE WHERE CD_RESERVA =?");
             statement.setInt(1, codigoReserva);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
                 reserva.setCodReserva(resultSet.getInt("CD_RESERVA"));
                 cliente.setId(resultSet.getInt("CD_CLIENTE"));
-                funcionario.setId(resultSet.getInt("CD_FUNCIONARIO"));
+                cliente.setCpf(resultSet.getLong("NR_CPF"));
+                cliente.setRg(resultSet.getString("NR_RG"));
+              //  funcionario.setId(resultSet.getInt("CD_FUNCIONARIO"));
                 reserva.setDtSolicitacao(resultSet.getString("DT_SOLICITACAO"));
                 reserva.setDtInicioReserva(resultSet.getString("DT_INICIO_RESERVA"));
                 reserva.setDtFimReserva(resultSet.getString("DT_FINAL_RESERVA"));

@@ -27,18 +27,17 @@
   </nav>
 
 
-
   <div class="container">
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
       <form action="Checkin" method="post">
-        <input type="hidden" name="checkin">
+        <input type="hidden" name="Checkin">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
-              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" value="${reserva.codReserva}"/>
+              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
             </div>
           </div>
           <div class="row mTop20">
@@ -58,15 +57,15 @@
           <div class="row mTop20">
             <div class="col-md-4">
               <label for="qt_adulto">Quantidade de adultos</label>
-              <input class="form-control" id="qt_adulto" name="qt_adulto" placeholder="Qtde de adultos" type="number" />
+              <input class="form-control" id="qt_adulto" name="qt_adulto" placeholder="Qtde de adultos" type="number" value="${reserva.qtdHospedesAdulto}" />
             </div>
             <div class="col-md-4">
               <label for="qt_crianca">Quantidade de crianças</label>
-              <input class="form-control" id="qt_crianca" name="qt_crianca" placeholder="Qtde de crianças" type="number" />
+              <input class="form-control" id="qt_crianca" name="qt_crianca" placeholder="Qtde de crianças" type="number" value="${reserva.qtdHospedesCrianca}" />
             </div>
             <div class="col-md-4">
               <label for="st_reserva">Status da reserva</label>
-              <select class="form-control" id="st_reserva" name="st_reserva">
+              <select class="form-control" id="st_reserva" name="st_reserva" value="${reserva.status}">
                 <option>Selecione o status</option>
               </select>
             </div>
@@ -89,11 +88,15 @@
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number" />
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value="${reserva.cliente}"/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
               <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" />
+            </div>
+            <div class="col-md-4">
+              <label for="nr_quarto">Nr Quarto</label>
+              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" />
             </div>
           </div>
         </div>
@@ -104,15 +107,15 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cpf">CPF</label>
-              <input class="form-control" id="cpf" name="cpf" placeholder="999.999.999-99"/>
+              <input class="form-control" id="cpf" name="cpf" placeholder="999.999.999-99" value="${reserva.cliente.cpf}"/>
             </div>
             <div class="col-md-4">
               <label for="name">Nome</label>
-              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente"/>
+              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value=""/>
             </div>
             <div class="col-md-4">
               <label for="rg">RG</label>
-              <input class="form-control" id="rg" name="rg" placeholder="RG do cliente"/>
+              <input class="form-control" id="rg" name="rg" placeholder="RG do cliente" value="${reserva.cliente.rg}"/>
             </div>
           </div>
           <div class="row mTop20">

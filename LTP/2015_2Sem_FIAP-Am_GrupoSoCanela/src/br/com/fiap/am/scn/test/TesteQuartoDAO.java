@@ -14,6 +14,8 @@ public class TesteQuartoDAO {
         Quarto q = new Quarto();
         QuartoDAO qDAO = new QuartoDAO();
 
+
+
     //    q = qDAO.getQuarto(3);
     //    System.out.println(q.getNumero() + "\n" + q.getAndar() + "\n" +  q.getCapacidade());
 
