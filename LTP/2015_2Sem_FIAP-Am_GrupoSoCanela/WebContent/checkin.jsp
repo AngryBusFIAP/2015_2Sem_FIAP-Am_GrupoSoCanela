@@ -31,13 +31,15 @@
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
       <form action="Checkin" method="post">
-        <input type="hidden" name="Checkin">
+        <input type="hidden">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
               <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
+              <input type="submit" value="Buscar" class="btn btn-primary raised">
+              </div>
             </div>
           </div>
           <div class="row mTop20">
@@ -65,12 +67,10 @@
             </div>
             <div class="col-md-4">
               <label for="st_reserva">Status da reserva</label>
-              <select class="form-control" id="st_reserva" name="st_reserva" value="${reserva.status}">
-                <option>Selecione o status</option>
-              </select>
+              <input class="form-control" id="st_reserva" name="st_reserva" value="${reserva.status}"/>
             </div>
           </div>
-        </div>
+
 
         <br>
         <h4 class="mTop20">Informações do quarto</h4>
@@ -88,11 +88,11 @@
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value="${reserva.cliente}"/>
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value=""/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
-              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" />
+              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" value="${reserva.quarto.capacidade}" />
             </div>
             <div class="col-md-4">
               <label for="nr_quarto">Nr Quarto</label>
@@ -121,18 +121,18 @@
           <div class="row mTop20">
             <div class="col-md-4">
               <label for="dt_nascimento">Data de nascimento</label>
-              <input class="form-control" id="birthday" id="dt_nascimento" name="dt_nascimento" placeholder="99/99/9999" />
+              <input class="form-control" id="birthday" id="dt_nascimento" name="dt_nascimento" placeholder="99/99/9999" value="${reserva.cliente.dtNascimento}"/>
             </div>
             <div class="col-md-4">
               <label for="nr_quarto_preferido">Nº quarto preferido</label>
-              <input class="form-control" id="nr_quarto_preferido" name="nr_quarto_preferido" placeholder="Nº quarto preferido" type="number" />
+              <input class="form-control" id="nr_quarto_preferido" name="nr_quarto_preferido" placeholder="Nº quarto preferido" type="number" value="${reserva.cliente.quartoPreferido}"/>
             </div>
           </div>
         </div>
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
-            <input type="hidden" value="checkin" name="veioDe">
-            <input type="submit" value="Realizar Check In" class="btn btn-primary raised">
+            <input type="hidden" value="">
+            <input type="submit" value="Realizar Check In" class="btn btn-primary raised" name="">
           </div>
           <div class="col-lg-6 mTop20">
             <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">

@@ -1,8 +1,6 @@
 package br.com.fiap.am.scn.dao;
 
-import br.com.fiap.am.scn.beans.Cliente;
-import br.com.fiap.am.scn.beans.Funcionario;
-import br.com.fiap.am.scn.beans.Reserva;
+import br.com.fiap.am.scn.beans.*;
 import br.com.fiap.am.scn.connection.ConexaoFactory;
 import br.com.fiap.am.scn.exception.Excecao;
 
@@ -30,12 +28,17 @@ public class ReservaDAO {
     public Reserva getReserva(int codigoReserva) throws Excecao{
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
-
+        ReservaQuarto reservaQuarto = new ReservaQuarto();
+        Quarto quarto = new Quarto();
         Reserva reserva = new Reserva();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT R.CD_RESERVA, C.CD_CLIENTE, C.NR_CPF, C.NR_RG, R.DT_SOLICITACAO, R.DT_INICIO_RESERVA, "
-                    + "R.DT_FINAL_RESERVA, R.QT_ADULTO, R.QT_CRIANCA, R.ST_RESERVA FROM T_AM_SCN_RESERVA R " +
-                    " JOIN T_AM_SCN_CLIENTE C ON C.CD_CLIENTE = R.CD_CLIENTE WHERE CD_RESERVA =?");
+            PreparedStatement statement = connection.prepareStatement("SELECT R.CD_RESERVA, C.CD_CLIENTE, C.NR_CPF, C.NR_RG, " +
+                    "C.NR_QUARTO_PREFERIDO ,C.DT_NASCIMENTO, R.DT_SOLICITACAO, R.DT_INICIO_RESERVA, "
+                    + "R.DT_FINAL_RESERVA, R.QT_ADULTO, R.QT_CRIANCA, R.ST_RESERVA, RQ.QT_PESSOA_QUARTO "
+                    + "FROM T_AM_SCN_RESERVA R "
+                    + "JOIN T_AM_SCN_RESERVA_QUARTO RQ ON RQ.CD_RESERVA = R.CD_RESERVA "
+                    + "JOIN T_AM_SCN_CLIENTE C ON C.CD_CLIENTE = R.CD_CLIENTE "
+                    + "WHERE R.CD_RESERVA =?");
             statement.setInt(1, codigoReserva);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
@@ -43,6 +46,8 @@ public class ReservaDAO {
                 cliente.setId(resultSet.getInt("CD_CLIENTE"));
                 cliente.setCpf(resultSet.getLong("NR_CPF"));
                 cliente.setRg(resultSet.getString("NR_RG"));
+                cliente.setDtNascimento(resultSet.getString("DT_NASCIMENTO"));
+                cliente.setQuartoPreferido(resultSet.getInt("NR_QUARTO_PREFERIDO"));
               //  funcionario.setId(resultSet.getInt("CD_FUNCIONARIO"));
                 reserva.setDtSolicitacao(resultSet.getString("DT_SOLICITACAO"));
                 reserva.setDtInicioReserva(resultSet.getString("DT_INICIO_RESERVA"));
@@ -50,6 +55,7 @@ public class ReservaDAO {
                 reserva.setQtdHospedesAdulto(resultSet.getInt("QT_ADULTO"));
                 reserva.setQtdHospedesCrianca(resultSet.getInt("QT_CRIANCA"));
                 reserva.setStatus(resultSet.getInt("ST_RESERVA"));
+                reservaQuarto.setQtdePessoaQuarto(resultSet.getInt("QT_PESSOA_QUARTO"));
                 reserva.setCliente(cliente);
                 reserva.setFuncionario(funcionario);
                 resultSet.close();

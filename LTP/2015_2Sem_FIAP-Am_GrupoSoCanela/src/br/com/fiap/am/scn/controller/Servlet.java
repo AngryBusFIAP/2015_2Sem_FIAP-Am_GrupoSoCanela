@@ -24,8 +24,9 @@ import java.io.IOException;
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         try {
-            registrarCheckin(request, response);
+            buscarReserva(request, response);
         } catch (Excecao excecao) {
             excecao.printStackTrace();
         }
@@ -36,7 +37,7 @@ public class Servlet extends HttpServlet {
 
     }
 
-    public void registrarCheckin(HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
+    public void buscarReserva(HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
 
 
         Reserva reserva = new Reserva();
@@ -52,10 +53,10 @@ public class Servlet extends HttpServlet {
         Reserva idRes = reservaDAO.getReserva(Integer.parseInt(request.getParameter("cd_reserva")));
         request.setAttribute("reserva", idRes);
         request.setAttribute("cliente", cliente);
+        request.setAttribute("quarto", quarto);
 
 //        Cliente idCliente = clienteDAO.getClienteCPF(Integer.parseInt(request.getParameter("cpf")));
 //        request.setAttribute("cliente", idCliente);
-
 
 
 //        Quarto idQuarto = quartoDAO.getQuarto(Integer.parseInt(request.getParameter("nr_quarto")));
@@ -84,6 +85,15 @@ public class Servlet extends HttpServlet {
 //        request.setAttribute("hospedagem", hospedagem);
 
         request.getRequestDispatcher("checkin.jsp").forward(request, response);
+
+    }
+
+    public void inserirHospedagem(HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
+
+        Quarto quarto = new Quarto();
+        QuartoDAO quartoDAO = new QuartoDAO();
+
+
 
     }
 }

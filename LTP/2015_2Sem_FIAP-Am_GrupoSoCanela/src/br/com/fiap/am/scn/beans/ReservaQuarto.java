@@ -9,14 +9,14 @@ public class ReservaQuarto {
 
 	private Reserva reserva;
 	private Quarto quarto;
-	private short qtdePessoaQuarto;
+	private int qtdePessoaQuarto;
 	private String descObservacao;
 
 	public ReservaQuarto() {
 
 	}
 
-	public ReservaQuarto(Reserva reserva, Quarto quarto, short qtdePessoaQuarto, String descObservacao) {
+	public ReservaQuarto(Reserva reserva, Quarto quarto, int qtdePessoaQuarto, String descObservacao) {
 		this.reserva = reserva;
 		this.quarto = quarto;
 		this.qtdePessoaQuarto = qtdePessoaQuarto;
@@ -39,11 +39,11 @@ public class ReservaQuarto {
 		this.quarto = quarto;
 	}
 
-	public short getQtdePessoaQuarto() {
+	public int getQtdePessoaQuarto() {
 		return qtdePessoaQuarto;
 	}
 
-	public void setQtdePessoaQuarto(short qtdePessoaQuarto) {
+	public void setQtdePessoaQuarto(int qtdePessoaQuarto) {
 		this.qtdePessoaQuarto = qtdePessoaQuarto;
 	}
 
