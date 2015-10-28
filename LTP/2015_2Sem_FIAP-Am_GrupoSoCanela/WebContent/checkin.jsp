@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da reserva</label>
-              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" value="${reserva.codReserva}"/>
+              <input class="form-control" id="cd_reserva" value="${reserva.codReserva}" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
               <input type="submit" value="Buscar" class="btn btn-primary raised">
               </div>
             </div>
@@ -133,11 +133,11 @@
         </div>
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
-            <input type="hidden" value="1" name="cd_funcionario">
+            <input type="hidden" value="8" name="cd_funcionario">
             <input type="submit" id="btnConf" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
           </div>
           <div class="col-lg-6 mTop20">
-            <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">
+            <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form" required>
           </div>
         </div>
       </form>

@@ -68,7 +68,9 @@ public class HospedagemDAO {
             ps.setString(6, hospedagem.getDtSaida());
             ps.setDouble(7, hospedagem.getPercDesconto());
             ps.execute();
+            connection.commit();
             ps.close();
+
         }catch (SQLException e){
             throw new Excecao(e);
         }

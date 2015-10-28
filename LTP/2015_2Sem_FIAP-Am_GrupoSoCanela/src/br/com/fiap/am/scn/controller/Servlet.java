@@ -23,26 +23,18 @@ import java.io.IOException;
 public class Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        if(request.getParameter("metodo").equalsIgnoreCase("buscar")) {
+        if (request.getParameter("metodo").equalsIgnoreCase("buscar")) {
             try {
                 buscarReserva(request, response);
-            } catch (Exception e) {
-                try {
-                    throw new Excecao("Problemas na servlet!\n"+e);
-                } catch (Excecao excecao) {
-                    excecao.printStackTrace();
-                }
+            } catch (Excecao e) {
+                e.printStackTrace();
             }
-        }
-
-        if(request.getParameter("metodo").contains("confirmar")){
-            try {
-                inserirHospedagem(request, response);
-            } catch (Exception e) {
+        } else {
+            if (request.getParameter("metodo").contains("confirmar")) {
                 try {
-                    throw new Excecao("Problemas na servlet!\n"+e);
-                } catch (Excecao excecao) {
-                    excecao.printStackTrace();
+                    inserirHospedagem(request, response);
+                } catch (Excecao e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -60,6 +52,7 @@ public class Servlet extends HttpServlet {
         }
 
     }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -130,13 +123,16 @@ public class Servlet extends HttpServlet {
 
         Funcionario funcionario = new Funcionario();
         funcionario.setCodFuncionario(Integer.parseInt(request.getParameter("cd_funcionario")));
+        if(funcionario.getCodFuncionario() < 0){
+            funcionario.setCodFuncionario(8);
+        }
         hospedagem.setFuncionario(funcionario);
-
         hospedagem.setDtEntrada(new HospedagemDAO().sysDate());
-        hospedagem.setDtHospedagem(new HospedagemDAO().sysDate());
+//        hospedagem.setDtHospedagem(new HospedagemDAO().sysDate());
         hospedagem.setDtSaida(request.getParameter("dt_final"));
-
         hospedagem.setPercDesconto(Double.parseDouble(request.getParameter("vc_perc_desconto")));
+
+        hospedagem.setQuarto(reserva.getQuarto());
 
         new HospedagemBO().confirmHosp(hospedagem);
     }
