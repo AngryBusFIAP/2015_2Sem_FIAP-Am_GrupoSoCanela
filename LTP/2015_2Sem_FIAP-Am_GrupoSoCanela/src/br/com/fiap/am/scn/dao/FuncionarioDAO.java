@@ -24,7 +24,12 @@ public class FuncionarioDAO {
         throw new Excecao();
         }
     }
-
+    /**
+     * Busca o funcionario pelo codigo do Funcionario
+     * @param codigo - codigo do Funcionario
+     * @return Objeto Funcionario
+     * @throws Excecao
+     */
     public Funcionario getFuncionario (int codigo) throws Excecao{
 
         Funcionario funcionario = new Funcionario();

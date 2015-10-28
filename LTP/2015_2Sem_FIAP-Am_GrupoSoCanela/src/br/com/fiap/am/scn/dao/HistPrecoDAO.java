@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de acesso de dados do Historico de Preco(Produto)
  */
 public class HistPrecoDAO {
 
@@ -25,7 +25,12 @@ public class HistPrecoDAO {
             throw new Excecao(e);
         }
     }
-
+    /**
+     * Busca o Historico de preco pelo codigo do Historico
+     * @param codigo - codigo de Historico de Preco
+     * @return Objeto HistoricoPreco
+     * @throws Excecao
+     */
     public HistoricoPreco getHistoricoPreco (int codigo) throws Excecao{
 
         HistoricoPreco historicoPreco = new HistoricoPreco();

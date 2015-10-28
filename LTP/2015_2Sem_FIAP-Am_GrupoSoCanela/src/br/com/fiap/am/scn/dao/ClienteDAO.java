@@ -13,7 +13,7 @@ import java.sql.SQLException;
 /**
  * Classe de Acesso de Dados do Cliente
  * 
- * @see br.com.fiap.am.scn.beans.Cliente;
+ * @see {@link br.com.fiap.am.scn.beans.Cliente}
  */
 public class ClienteDAO {
 

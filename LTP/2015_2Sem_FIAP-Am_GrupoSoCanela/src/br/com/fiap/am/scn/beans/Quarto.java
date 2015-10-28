@@ -2,7 +2,7 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe beans para Quarto
  * 
- * @see br.com.fiap.am.scn.beans.TipoQuarto;
+ * @see {@link br.com.fiap.am.scn.beans.TipoQuarto}
  */
 public class Quarto {
 

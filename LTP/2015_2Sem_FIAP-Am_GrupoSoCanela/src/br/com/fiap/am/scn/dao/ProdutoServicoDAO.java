@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de Acesso de Dados de Produto/Servico
  */
 public class ProdutoServicoDAO {
 
@@ -23,7 +23,13 @@ public class ProdutoServicoDAO {
             throw new Excecao(e);
         }
     }
-
+    
+    /**
+     * Busca o Produto/Servico pelo codigo
+     * @param codigo - Codigo do produto/servico
+     * @return Objeto ProdutoServico
+     * @throws Excecao
+     */
     public ProdutoServico getProdutoServico (int codigo) throws Excecao{
 
         ProdutoServico produtoServico = new ProdutoServico();

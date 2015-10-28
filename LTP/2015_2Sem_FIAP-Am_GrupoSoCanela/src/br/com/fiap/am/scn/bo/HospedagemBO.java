@@ -5,19 +5,15 @@ import br.com.fiap.am.scn.dao.HospedagemDAO;
 import br.com.fiap.am.scn.exception.Excecao;
 
 /**
- * Created by
- *
- * @author vinylimaz
- *         on 20/10/15 & 20:12.
- *         HospedagemBO é uma classe que valida as regras de negocio relacionadas a Hospedagem
- *         @see br.com.fiap.am.scn.beans.Hospedagem
+ * Classe de Regras de negocio das Hospedagens
+ *         @see {@link br.com.fiap.am.scn.beans.Hospedagem}
  */
 public class HospedagemBO {
 
     /***
-     * Metodo para verificação da data de entrada, só pode ocorrer se for no mesmo dia ou até 1 dia depois do reservado
+     * Metodo para verificacao da data de entrada, so pode ocorrer se for no mesmo dia ou ate 1 dia depois do reservado
      *
-     * @return
+     * @return String se a data foi validada ou nao
      */
 
     public String confirmHosp(Hospedagem hospedagem) throws Excecao{

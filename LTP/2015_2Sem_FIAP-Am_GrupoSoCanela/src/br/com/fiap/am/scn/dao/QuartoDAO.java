@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de Acesso de Dados do Quarto
  */
 public class QuartoDAO {
 
@@ -27,7 +27,13 @@ public class QuartoDAO {
         }
 
     }
-
+    
+    /**
+     * Busca o Quarto pelo numero do quarto
+     * @param quarto - numero do quarto
+     * @return Objeto Quarto
+     * @throws Excecao
+     */
     public Quarto getQuarto(int quarto) throws Excecao{
 
         Quarto q = new Quarto();
@@ -49,7 +55,12 @@ public class QuartoDAO {
         return q;
     }
 
-
+    /**
+     * Pega os quartos reservados utilizando o codigo da reserva
+     * @param codReserva
+     * @return Lista com o(s) quarto(s) reservado(s)
+     * @throws Excecao
+     */
     public List<ReservaQuarto> getQuartos(int codReserva) throws Excecao{
 
         List<ReservaQuarto> listQuarto = new ArrayList<ReservaQuarto>();

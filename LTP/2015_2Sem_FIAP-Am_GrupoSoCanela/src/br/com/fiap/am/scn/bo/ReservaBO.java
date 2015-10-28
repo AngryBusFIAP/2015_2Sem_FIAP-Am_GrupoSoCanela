@@ -9,19 +9,27 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by
- *
- * @author vinylimaz
- *         on 25/10/15 & 15:05.
- *         ReservaBO é uma classe
+ * Classe de Regras de Negocio da Reserva
+ * @see {@link br.com.fiap.am.scn.beans.Reserva}
  */
 public class ReservaBO {
 
-
+	/**
+	 * Busca a data da reserva utilizando o codigo da reserva
+	 * @param codReserva
+	 * @return String com a data 
+	 * @throws Excecao
+	 */
     public String getDtReserva(int codReserva) throws Excecao {
         return new ReservaDAO().getDataReserva(codReserva);
     }
 
+    /**
+     * Metodo para verificar se a data esta dentro das regras de ser efetuada dentro de 24 horas
+     * @param codReserva
+     * @return boolean true=data validada/false=data invalida;
+     * @throws Excecao
+     */
     public boolean verifDtEntrada(int codReserva) throws Excecao {
         try {
 

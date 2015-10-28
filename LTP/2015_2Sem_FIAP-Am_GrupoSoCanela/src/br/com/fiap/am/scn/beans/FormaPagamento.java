@@ -2,9 +2,9 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para Forma de Pagamento
  * 
- * @see br.com.fiap.am.scn.beans.Dinheiro;
- * @see br.com.fiap.am.scn.beans.Cheque;
- * @see br.com.fiap.am.scn.beans.Cartao;
+ * @see {@link br.com.fiap.am.scn.beans.Dinheiro}
+ * @see {@link br.com.fiap.am.scn.beans.Cheque}
+ * @see {@link br.com.fiap.am.scn.beans.Cartao}
  */
 public class FormaPagamento {
 

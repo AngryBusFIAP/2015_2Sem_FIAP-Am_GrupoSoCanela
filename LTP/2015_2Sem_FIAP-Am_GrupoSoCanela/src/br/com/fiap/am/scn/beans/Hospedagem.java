@@ -2,11 +2,11 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para Hospedagem
  * 
- * @see br.com.fiap.am.scn.beans.Consumo;
- * @see br.com.fiap.am.scn.beans.Cliente;
- * @see br.com.fiap.am.scn.beans.Funcionario;
- * @see br.com.fiap.am.scn.beans.Reserva;
- * @see br.com.fiap.am.scn.beans.Quarto;
+ * @see {@link br.com.fiap.am.scn.beans.Consumo}
+ * @see {@link br.com.fiap.am.scn.beans.Cliente}
+ * @see {@link br.com.fiap.am.scn.beans.Funcionario}
+ * @see {@link br.com.fiap.am.scn.beans.Reserva}
+ * @see {@link br.com.fiap.am.scn.beans.Quarto}
  */
 public class Hospedagem {
 

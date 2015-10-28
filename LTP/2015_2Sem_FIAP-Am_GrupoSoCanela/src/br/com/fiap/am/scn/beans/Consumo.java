@@ -3,9 +3,9 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para Consumo;
  * 
- * @see br.com.fiap.am.scn.beans.TipoServico;
- * @see br.com.fiap.am.scn.beans.Funcionario;
- * @see br.com.fiap.am.scn.beans.Hospedagem;
+ * @see {@link br.com.fiap.am.scn.beans.TipoServico}
+ * @see {@link br.com.fiap.am.scn.beans.Funcionario}
+ * @see {@link br.com.fiap.am.scn.beans.Hospedagem}
  */
 public class Consumo {
 

@@ -11,11 +11,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by
- *
- * @author vinylimaz
- *         on 20/10/15 & 20:20.
- *         HospedagemDAO é uma classe
+ * Classe de acesso de dados de Hospedagem
  */
 public class HospedagemDAO {
     private Connection connection;
@@ -27,7 +23,12 @@ public class HospedagemDAO {
             throw new Excecao(e);
         }
     }
-
+    /**
+     * Metodo que retorna a data atual do sistema utilizando 
+     * uma consulta no banco de dados
+     * @return String com a data do sistema
+     * @throws Excecao
+     */
     public String sysDate() throws Excecao {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -46,7 +47,13 @@ public class HospedagemDAO {
         }
     }
 
-
+    /**
+     * Metodo para Cadastrar a hospedagem 
+     * Utilizando prepared statement
+     * @param hospedagem
+     * @return String confirmando se foi cadastrado ou nao
+     * @throws Excecao
+     */
     public String confirmHosp(Hospedagem hospedagem) throws Excecao{
 
         String sql = "INSERT INTO T_AM_SCN_HOSPEDAGEM VALUES (SQ_SCN_HBV_HOSPEDAGEM.NEXTVAL, ?,?,?,?,?,?,?)";
@@ -69,6 +76,12 @@ public class HospedagemDAO {
         return "Hospedagem cadastrada com sucesso";
     }
 
+    /**
+     * Busca a hospedagem pelo Codigo da Hospedagem
+     * @param codHospedagem
+     * @return Objeto Hospedagem
+     * @throws Excecao
+     */
     public Hospedagem getHospedagem(int codHospedagem) throws Excecao {
 
         Hospedagem hospedagem = new Hospedagem();
@@ -102,7 +115,12 @@ public class HospedagemDAO {
         }
         return hospedagem;
     }
-
+    /**
+     * Busca a hospedagem utilizando o objeto Cliente
+     * @param cliente
+     * @return Objeto Hospedagem
+     * @throws Excecao
+     */
     public Hospedagem getHospedagem(Cliente cliente) throws Excecao {
 
         Hospedagem hospedagem = new Hospedagem();

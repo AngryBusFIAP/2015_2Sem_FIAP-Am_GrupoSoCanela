@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 21/10/2015.
+ * Classe de Acesso de Dados de Reserva/Quarto
  */
 public class ReservaQuartoDAO {
 
@@ -24,7 +24,14 @@ public class ReservaQuartoDAO {
             throw new Excecao(e);
         }
     }
-
+    
+    /**
+     * Busca a reserva do Quarto utilizando o objeto Quarto e reserva
+     * @param r - Reserva
+     * @param q - Quarto
+     * @deprecated
+     * @throws Excecao
+     */
     public String getReservaQuarto(Reserva r, Quarto q) throws Excecao{
 
         Reserva reserva = new Reserva();

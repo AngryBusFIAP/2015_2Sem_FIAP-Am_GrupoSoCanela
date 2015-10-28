@@ -2,7 +2,7 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para a Cartao(Forma de Pagamento)
  * 
- * @see br.com.fiap.am.scn.beans.Hospedagem;
+ * @see {@link br.com.fiap.am.scn.beans.Hospedagem}
  */
 
 

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Jardel on 20/10/2015.
+ * Classe de acesso de dados da Reserva
  */
 public class ReservaDAO {
 
@@ -25,6 +25,12 @@ public class ReservaDAO {
         }
     }
 
+    /**
+     * Busca a reserva pelo codigo da Reserva
+     * @param codigoReserva
+     * @return Objeto Reserva
+     * @throws Excecao
+     */
     public Reserva getReserva(int codigoReserva) throws Excecao{
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
@@ -68,6 +74,12 @@ public class ReservaDAO {
         return reserva;
     }
 
+    /**
+     * Busca a data da Reserva utilizando o Objeto Cliente
+     * @param Cliente
+     * @return String com a data da Reserva
+     * @throws Excecao
+     */
     public String getDataReserva(Cliente cliente) throws Excecao{
         String strDtReserva = null;
         try{
@@ -86,6 +98,12 @@ public class ReservaDAO {
         return strDtReserva;
     }
 
+    /**
+     * Metodo para Buscar o codigo da Reserva utilizando o codigo do cliente
+     * @param idCliente
+     * @return Objeto Reserva
+     * @throws Excecao
+     */
     public Reserva getCodReserva(int idCliente) throws Excecao{
         Reserva r = new Reserva();
 

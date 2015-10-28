@@ -3,7 +3,7 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe beans para Relacional de Cheque
  * 
- * @see br.com.fiap.am.scn.beans.Hospedagem;
+ * @see {@link br.com.fiap.am.scn.beans.Hospedagem}
  */
 public class RelacionalCheque {
 	private int codPgtoCheque;

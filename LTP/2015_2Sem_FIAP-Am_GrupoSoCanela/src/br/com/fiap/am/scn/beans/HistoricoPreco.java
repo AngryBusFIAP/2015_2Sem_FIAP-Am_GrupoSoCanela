@@ -3,7 +3,7 @@ package br.com.fiap.am.scn.beans;
 /**
  * Classe Beans para Historico de Preco dos Servicos/Produtos
  * 
- * @see br.com.fiap.am.scn.beans.TipoServico;
+ * @see {@link br.com.fiap.am.scn.beans.TipoServico}
  */
 public class HistoricoPreco {
 	private int codHistPreco;
