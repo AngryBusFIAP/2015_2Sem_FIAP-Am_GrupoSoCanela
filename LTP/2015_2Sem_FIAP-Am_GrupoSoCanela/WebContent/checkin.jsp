@@ -26,12 +26,11 @@
     </div>
   </nav>
 
-
   <div class="container">
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
       <form action="Checkin" method="post">
-        <input type="hidden">
+        <input type="hidden" id="metodo" value="buscar" name="metodo">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
@@ -78,25 +77,25 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cd_tipo_quarto">Tipo do quarto</label>
-              <select class="form-control" id="cd_tipo_quarto" name="cd_tipo_quarto">
-                <option>Selecione o tipo de quarto</option>
-                <option value="1">Single</option>
-                <option value="2">Double</option>
-                <option value="3">Suíte de Luxo</option>
-                <option value="4">Suíte presidencial</option>
-              </select>
+              <input class="form-control" id="cd_tipo_quarto" name="cd_tipo_quarto" value="${reserva.quarto.tipo.descricao}"/>
+                <%--<option>Selecione o tipo de quarto</option>--%>
+                <%--<option value="1">Single</option>--%>
+                <%--<option value="2">Double</option>--%>
+                <%--<option value="3">Suíte de Luxo</option>--%>
+                <%--<option value="4">Suíte presidencial</option>--%>
+              <%--</select>--%>
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value=""/>
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value="${reserva.quarto.andar}"/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
-              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" value="${reserva.quarto.capacidade}" />
+              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" max="4" min="1" value="${reserva.quarto.capacidade}" />
             </div>
             <div class="col-md-4">
               <label for="nr_quarto">Nr Quarto</label>
-              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" />
+              <input class="form-control" id="nr_quarto" name="nr_capacidade" placeholder="Numero Quarto" type="number" value="${reserva.quarto.numero}" />
             </div>
           </div>
         </div>
@@ -111,7 +110,7 @@
             </div>
             <div class="col-md-4">
               <label for="name">Nome</label>
-              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value=""/>
+              <input class="form-control" id="name" name="nome" placeholder="Nome do cliente" value="${reserva.cliente.nome}"/>
             </div>
             <div class="col-md-4">
               <label for="rg">RG</label>
@@ -127,12 +126,15 @@
               <label for="nr_quarto_preferido">Nº quarto preferido</label>
               <input class="form-control" id="nr_quarto_preferido" name="nr_quarto_preferido" placeholder="Nº quarto preferido" type="number" value="${reserva.cliente.quartoPreferido}"/>
             </div>
+            <div class="col-md-4"><label for="vc_perc_desconto">Percentual de Desconto</label>
+              <input type="number" min="0" max="5" class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" value="${hospedagem.vc_perc_desconto}">
+            </div>
           </div>
         </div>
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
-            <input type="hidden" value="">
-            <input type="submit" value="Realizar Check In" class="btn btn-primary raised" name="">
+            <input type="hidden" value="1" name="cd_funcionario">
+            <input type="submit" id="btnConf" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
           </div>
           <div class="col-lg-6 mTop20">
             <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">

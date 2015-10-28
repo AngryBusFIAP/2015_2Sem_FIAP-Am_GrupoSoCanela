@@ -92,6 +92,7 @@ public class PagamentoBO {
         for (ReservaQuarto reservaQuarto : quartos) {
             Quarto quarto = reservaQuarto.getQuarto();
             valorHosp += (quarto.getValorQuarto().getVl_preco_quarto());
+
         }
         return valorHosp;
     }

@@ -14,8 +14,6 @@ public class Hospedagem {
 
 	private String dtHospedagem;
 
-	private String hrHospedagem;
-	
 	private String dtEntrada;
 	
 	private String dtSaida;
@@ -37,13 +35,12 @@ public class Hospedagem {
 	}
 	
 	public Hospedagem(int codHospedagem, String dtHospedagem,
-			String hrHospedagem, String dtEntrada, String dtSaida,
+			 String dtEntrada, String dtSaida,
 			double percDesconto, Consumo consumo, Cliente cliente,
 			Reserva reserva, Quarto quarto, Funcionario funcionario) {
 		super();
 		this.codHospedagem = codHospedagem;
 		this.dtHospedagem = dtHospedagem;
-		this.hrHospedagem = hrHospedagem;
 		this.dtEntrada = dtEntrada;
 		this.dtSaida = dtSaida;
 		this.percDesconto = percDesconto;
@@ -70,14 +67,6 @@ public class Hospedagem {
 
 	public void setDtHospedagem(String dtHospedagem) {
 		this.dtHospedagem = dtHospedagem;
-	}
-
-	public String getHrHospedagem() {
-		return hrHospedagem;
-	}
-
-	public void setHrHospedagem(String hrHospedagem) {
-		this.hrHospedagem = hrHospedagem;
 	}
 
 	public String getDtEntrada() {
