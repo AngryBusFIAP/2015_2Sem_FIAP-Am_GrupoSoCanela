@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by
@@ -27,10 +26,6 @@ public class HospedagemDAO {
         } catch (Exception e) {
             throw new Excecao(e);
         }
-    }
-
-    public String confirmHosp(Cliente cliente, Hospedagem hospedagem, Quarto quarto, Reserva reserva, Funcionario funcionario) {
-        return null;
     }
 
     public String sysDate() throws Excecao {
@@ -107,6 +102,4 @@ public class HospedagemDAO {
         }
         return hospedagem;
     }
-
-
 }
