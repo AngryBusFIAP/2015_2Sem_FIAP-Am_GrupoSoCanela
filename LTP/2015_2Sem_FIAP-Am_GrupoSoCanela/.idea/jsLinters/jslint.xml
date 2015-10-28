@@ -2,8 +2,11 @@
 <project version="4">
   <component name="JSLintConfiguration">
     <option ass="true" />
+    <option bitwise="true" />
+    <option eqeq="true" />
     <option indent="4" />
     <option maxerr="50" />
+    <option plusplus="true" />
     <option todo="true" />
   </component>
 </project>
