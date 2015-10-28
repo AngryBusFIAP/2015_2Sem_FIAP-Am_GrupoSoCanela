@@ -1,9 +1,8 @@
 package br.com.fiap.am.scn.controller;
 
 import br.com.fiap.am.scn.beans.*;
-import br.com.fiap.am.scn.dao.ClienteDAO;
+import br.com.fiap.am.scn.bo.HospedagemBO;
 import br.com.fiap.am.scn.dao.HospedagemDAO;
-import br.com.fiap.am.scn.dao.QuartoDAO;
 import br.com.fiap.am.scn.dao.ReservaDAO;
 import br.com.fiap.am.scn.exception.Excecao;
 
@@ -22,15 +21,32 @@ import java.io.IOException;
  */
 
 public class Servlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        if(request.getParameter("metodo").equalsIgnoreCase("checkin")) {
+        if(request.getParameter("metodo").equalsIgnoreCase("buscar")) {
             try {
                 buscarReserva(request, response);
-            } catch (Excecao excecao) {
-                excecao.printStackTrace();
+            } catch (Exception e) {
+                try {
+                    throw new Excecao("Problemas na servlet!\n"+e);
+                } catch (Excecao excecao) {
+                    excecao.printStackTrace();
+                }
             }
         }
+
+        if(request.getParameter("metodo").contains("confirmar")){
+            try {
+                inserirHospedagem(request, response);
+            } catch (Exception e) {
+                try {
+                    throw new Excecao("Problemas na servlet!\n"+e);
+                } catch (Excecao excecao) {
+                    excecao.printStackTrace();
+                }
+            }
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,25 +55,19 @@ public class Servlet extends HttpServlet {
 
     public void buscarReserva(HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
 
-
-        Reserva reserva = new Reserva();
-        ReservaDAO reservaDAO = new ReservaDAO();
         Quarto quarto = new Quarto();
-        QuartoDAO quartoDAO = new QuartoDAO();
         Cliente cliente = new Cliente();
-        ClienteDAO clienteDAO = new ClienteDAO();
-        Funcionario funcionario = new Funcionario();
 
-        Hospedagem hospedagem = new Hospedagem();
-
-        Reserva idRes = reservaDAO.getReserva(Integer.parseInt(request.getParameter("cd_reserva")));
-        request.setAttribute("reserva", idRes);
+        Reserva reserva = new ReservaDAO().getReserva(Integer.parseInt(request.getParameter("cd_reserva")));
+        reserva.setDtSolicitacao(mudaData(reserva.getDtSolicitacao()));
+        reserva.setDtInicioReserva(mudaData(reserva.getDtInicioReserva()));
+        reserva.setDtFimReserva(mudaData(reserva.getDtFimReserva()));
+        request.setAttribute("reserva", reserva);
         request.setAttribute("cliente", cliente);
         request.setAttribute("quarto", quarto);
 
 //        Cliente idCliente = clienteDAO.getClienteCPF(Integer.parseInt(request.getParameter("cpf")));
 //        request.setAttribute("cliente", idCliente);
-
 
 
 //        Quarto idQuarto = quartoDAO.getQuarto(Integer.parseInt(request.getParameter("nr_quarto")));
@@ -88,13 +98,33 @@ public class Servlet extends HttpServlet {
         request.getRequestDispatcher("checkin.jsp").forward(request, response);
 
     }
+    //SOMENTE PARA CORRIGIR A EXIBICAO!
+    public String mudaData(String data) {
+        String[] auxDt = new String[3];
+        auxDt[2] = data.substring(0, 4);
+        auxDt[1] = data.substring(4, 8);
+        auxDt[0] = data.substring(8, 10);
+        return (auxDt[0]+auxDt[1]+auxDt[2]).replace("-", "/");
+    }
 
     public void inserirHospedagem(HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
+        Reserva reserva = new ReservaDAO().getReserva(Integer.parseInt(request.getParameter("cd_reserva")));
 
-        Quarto quarto = new Quarto();
-        QuartoDAO quartoDAO = new QuartoDAO();
+        Hospedagem hospedagem = new Hospedagem();
+        hospedagem.setReserva(reserva);
 
+        hospedagem.setCliente(reserva.getCliente());
 
+        Funcionario funcionario = new Funcionario();
+        funcionario.setCodFuncionario(Integer.parseInt(request.getParameter("cd_funcionario")));
+        hospedagem.setFuncionario(funcionario);
 
+        hospedagem.setDtEntrada(new HospedagemDAO().sysDate());
+        hospedagem.setDtHospedagem(new HospedagemDAO().sysDate());
+        hospedagem.setDtSaida(request.getParameter("dt_final"));
+
+        hospedagem.setPercDesconto(Double.parseDouble(request.getParameter("vc_perc_desconto")));
+
+        new HospedagemBO().confirmHosp(hospedagem);
     }
 }

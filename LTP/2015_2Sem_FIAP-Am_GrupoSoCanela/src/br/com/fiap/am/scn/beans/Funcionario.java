@@ -19,7 +19,7 @@ public class Funcionario extends Pessoa {
 		super();
 	}
 
-	public Funcionario(int cargo, String dtAdmissao, double salario) {
+	public Funcionario(int codFuncionario, int cargo, String dtAdmissao, double salario) {
 		super();
 		this.codFuncionario = codFuncionario;
 		this.cargo = cargo;

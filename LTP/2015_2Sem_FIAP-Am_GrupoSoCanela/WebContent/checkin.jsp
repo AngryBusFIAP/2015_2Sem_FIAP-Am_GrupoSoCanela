@@ -31,7 +31,7 @@
     <div class="jumbotron main-container" id="hbv-container">
       <legend><h3>Check In</h3></legend>
       <form action="Checkin" method="post">
-        <input type="hidden">
+        <input type="hidden" id="metodo" value="buscar" name="metodo">
         <h4>Informações da reserva</h4>
         <div class="form-group mTop20">
           <div class="row">
@@ -88,11 +88,11 @@
             </div>
             <div class="col-md-4">
               <label for="nr_andar">Nº andar</label>
-              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" type="number"  value=""/>
+              <input class="form-control" id="nr_andar" name="nr_andar" placeholder="Nº andar" max="10" min="0" type="number"  value=""/>
             </div>
             <div class="col-md-4">
               <label for="nr_capacidade">Capacidade de pessoas</label>
-              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" value="${reserva.quarto.capacidade}" />
+              <input class="form-control" id="nr_capacidade" name="nr_capacidade" placeholder="Capacidade" type="number" max="4" min="1" value="${reserva.quarto.capacidade}" />
             </div>
             <div class="col-md-4">
               <label for="nr_quarto">Nr Quarto</label>
@@ -127,12 +127,15 @@
               <label for="nr_quarto_preferido">Nº quarto preferido</label>
               <input class="form-control" id="nr_quarto_preferido" name="nr_quarto_preferido" placeholder="Nº quarto preferido" type="number" value="${reserva.cliente.quartoPreferido}"/>
             </div>
+            <div class="col-md-4"><label for="vc_perc_desconto">Percentual de Desconto</label>
+              <input type="number" min="0" max="5" class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" value="${hospedagem.vc_perc_desconto}">
+            </div>
           </div>
         </div>
         <div class="row mTop20">
           <div class="col-lg-3 mTop20">
-            <input type="hidden" value="">
-            <input type="submit" value="Realizar Check In" class="btn btn-primary raised" name="">
+            <input type="hidden" value="1" name="cd_funcionario">
+            <input type="submit" id="btnConf" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
           </div>
           <div class="col-lg-6 mTop20">
             <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">
