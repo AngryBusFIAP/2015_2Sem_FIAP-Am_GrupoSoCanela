@@ -33,7 +33,7 @@ public class HospedagemDAO {
         return null;
     }
 
-    public Date sysDate() throws Excecao {
+    public String sysDate() throws Excecao {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
@@ -41,10 +41,10 @@ public class HospedagemDAO {
             ResultSet resultSet = stmt.executeQuery();
 
             if(resultSet.next()) {
-                Date sysDt = dateFormat.parse(resultSet.getString("SYSDATE"));
+                String sysDt = resultSet.getString("SYSDATE");
                 return sysDt;
             }else{
-                return new Date();
+                return null;
             }
         } catch (Exception e) {
             throw new Excecao(e);
