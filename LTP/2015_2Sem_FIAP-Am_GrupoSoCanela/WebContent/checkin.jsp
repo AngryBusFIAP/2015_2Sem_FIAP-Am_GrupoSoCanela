@@ -129,7 +129,8 @@
             </div>
             <div class="col-md-4">
               <label for="vc_perc_desconto">Percentual de Desconto</label>
-              <input type="number" min="0" max="5" class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" value="${hospedagem.vc_perc_desconto}">
+              <input type="number" min="0" max="5" class="form-control" id="vc_perc_desconto" name="vc_perc_desconto"
+                     value="${hospedagem.vc_perc_desconto}">
             </div>
           </div>
         </div>
@@ -139,7 +140,7 @@
             <input type="submit" id="btnCheckin" value="Realizar Check In" class="btn btn-primary raised" name="confirmar">
           </div>
           <div class="col-lg-6 mTop20">
-            <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form" required>
+            <input type="reset" value="Limpar campos" class="btn btn-danger raised" id="clear-form">
           </div>
         </div>
       </form>

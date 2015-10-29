@@ -7,19 +7,20 @@ $(document).ready(function(){
     $("#dt_final").mask("00/00/0000");
     $("#dt_entrada").mask("00/00/0000");
     $("#dt_saida").mask("00/00/0000");
-    $("#vl_pagamento").maskMoney({
-        prefix: "R$ ",
-        thousands: '.',
-        decimal: ','
-    });
+    //$("#vl_pagamento").maskMoney({
+    //    prefix: "R$ ",
+    //    thousands: '.',
+    //    decimal: ','
+    //});
 
     $("#clear-form").on('click', function(){ $("#cd_reserva").focus(); })
 
     $("#btnCheckin").click(function(){
-        $("#metodo").val("confirmarCheckin");
+        $("#metodoCheckin").val("confirmarCheckin");
+        alert($("#metodoCheckin").val());
     });
 
     $("#btnCheckout").click(function(){
-        $("#metodo").val("confirmarCheckout");
+        $("#metodoCheckout").val("confirmarCheckout");
     });
 });

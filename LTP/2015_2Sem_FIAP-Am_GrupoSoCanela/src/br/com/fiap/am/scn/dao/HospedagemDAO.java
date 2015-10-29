@@ -63,7 +63,7 @@ public class HospedagemDAO {
             ps.setInt(1, hospedagem.getQuarto().getNumero());
             ps.setInt(2, hospedagem.getReserva().getCodReserva());
             ps.setInt(3, hospedagem.getCliente().getId());
-            ps.setInt(4, hospedagem.getFuncionario().getId());
+            ps.setInt(4, hospedagem.getFuncionario().getCodFuncionario());
             ps.setString(5, hospedagem.getDtEntrada());
             ps.setString(6, hospedagem.getDtSaida());
             ps.setDouble(7, hospedagem.getPercDesconto());
