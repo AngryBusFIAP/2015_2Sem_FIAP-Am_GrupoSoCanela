@@ -17,10 +17,10 @@
         <url-pattern>/Checkin</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>ServletHBV</servlet-name>-->
-        <!--<url-pattern>/Checkout</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>ServletHBV</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

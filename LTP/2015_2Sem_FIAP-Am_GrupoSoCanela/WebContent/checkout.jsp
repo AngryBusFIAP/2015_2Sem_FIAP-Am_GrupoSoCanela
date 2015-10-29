@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-4">
               <label for="cd_reserva">Código da hospedagem</label>
-              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number"/>
+              <input class="form-control" id="cd_reserva" name="cd_reserva" placeholder="Insira o código da reserva" type="number" value="${hospedagem.codHospedagem}"/>
             </div>
             <div class="col-md-4 mTop20">
               <input type="submit" value="Buscar" class="btn btn-primary raised">
@@ -62,7 +62,7 @@
         <div class="row mTop20">
           <div class="col-md-3">
             <label for="nr_quarto">Nº do quarto</label>
-            <input class="form-control" id="nr_quarto" name="nr_quarto" placeholder="Nº" type="number" value="${hospedagem.nrQuarto}"/>
+            <input class="form-control" id="nr_quarto" name="nr_quarto" placeholder="Nº" type="number" value="${hospedagem.quarto.numero}"/>
           </div>
           <div class="col-md-3">
             <label for="dt_entrada">Data de entrada</label>
@@ -74,7 +74,7 @@
           </div>
           <div class="col-md-3">
             <label for="vc_perc_desconto">Percentual de desconto</label>
-            <input class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" placeholder="Percentual" type="number" value="${empty hospedagem.percDesconto ? 0 : hospedagem.percDesconto}" />
+            <input class="form-control" id="vc_perc_desconto" name="vc_perc_desconto" placeholder="Percentual" type="number" value="${hospedagem.percDesconto}" />
           </div>
         </div>
 
@@ -93,7 +93,7 @@
             </div>
             <div class="col-md-4">
               <label for="vl_pagamento">Valor Total</label>
-              <input class="form-control" id="vl_pagamento" name="vl_pagamento" placeholder="Valor total" />
+              <input class="form-control" id="vl_pagamento" name="vl_pagamento" placeholder="Valor total" value="${hospedagem.pagamento.valor}" />
             </div>
           </div>
         </div>

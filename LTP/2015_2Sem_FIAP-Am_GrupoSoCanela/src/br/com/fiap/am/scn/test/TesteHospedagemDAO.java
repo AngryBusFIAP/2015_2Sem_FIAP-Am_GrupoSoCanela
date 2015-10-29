@@ -77,7 +77,7 @@ public class TesteHospedagemDAO {
 //
         Pagamento p = new Pagamento();
         h = hDAO.getHospedagem(9);
-        System.out.println(h.getFuncionario().getCodFuncionario());
+        System.out.println(h.getPagamento().getValor());
 
 
 

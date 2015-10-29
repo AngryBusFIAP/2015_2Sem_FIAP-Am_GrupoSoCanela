@@ -29,12 +29,25 @@ public class Servlet extends HttpServlet {
             } catch (Excecao e) {
                 e.printStackTrace();
             }
-        } else if (request.getParameter("metodo").contains("confirmarCheckin")){
-            try {
-                inserirHospedagem(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        }
+            if(request.getParameter("metodo").contains("confirmar")){
+                try {
+                    inserirHospedagem(request, response);
+                } catch (Exception e) {
+                    try{
+                    throw new Excecao("Problemas na servlet!\n"+ e);
+                } catch (Excecao excecao) {
+                        excecao.printStackTrace();
+                    }
+                }
+
+
+//        } else if (request.getParameter("metodo").contains("confirmarCheckin")){
+//            try {
+//                inserirHospedagem(request, response);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         } else if (request.getParameter("metodo").contains("buscarHospedagem")) {
             try {
                 buscarHospedagem(request, response);
@@ -129,6 +142,8 @@ public class Servlet extends HttpServlet {
         hospedagem.setQuarto(reserva.getQuarto());
 
         new HospedagemBO().confirmHosp(hospedagem);
+
+
     }
 
     public void buscarHospedagem (HttpServletRequest request, HttpServletResponse response) throws Excecao, ServletException, IOException {
@@ -144,8 +159,5 @@ public class Servlet extends HttpServlet {
         request.setAttribute("pagamento", pagamento);
 
         request.getRequestDispatcher("checkout.jsp").forward(request,response);
-
-
-
     }
 }
