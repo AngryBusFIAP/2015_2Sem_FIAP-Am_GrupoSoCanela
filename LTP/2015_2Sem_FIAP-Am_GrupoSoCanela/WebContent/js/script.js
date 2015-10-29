@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     $("#btnCheckin").click(function(){
         $("#metodoCheckin").val("confirmarCheckin");
-        alert($("#metodoCheckin").val());
+        //alert($("#metodoCheckin").val());
     });
 
     $("#btnCheckout").click(function(){

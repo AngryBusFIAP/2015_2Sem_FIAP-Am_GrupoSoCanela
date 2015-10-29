@@ -1,18 +1,13 @@
 package br.com.fiap.am.scn.bo;
 
-import java.util.List;
-
-import br.com.fiap.am.scn.beans.Cliente;
-import br.com.fiap.am.scn.beans.Consumo;
-import br.com.fiap.am.scn.beans.Hospedagem;
-import br.com.fiap.am.scn.beans.Pagamento;
-import br.com.fiap.am.scn.beans.Quarto;
-import br.com.fiap.am.scn.beans.ReservaQuarto;
+import br.com.fiap.am.scn.beans.*;
 import br.com.fiap.am.scn.dao.ConsumoDAO;
 import br.com.fiap.am.scn.dao.HospedagemDAO;
 import br.com.fiap.am.scn.dao.PagamentoDAO;
 import br.com.fiap.am.scn.dao.QuartoDAO;
 import br.com.fiap.am.scn.exception.Excecao;
+
+import java.util.List;
 
 /**
  * Classe de Regra de negocio do pagamento
@@ -88,7 +83,6 @@ public class PagamentoBO {
         Hospedagem hospedagem = new HospedagemDAO().getHospedagem(cliente);
 
         List<ReservaQuarto> quartos = new QuartoDAO().getQuartos(hospedagem.getReserva().getCodReserva());
-        //TODO como verificar a validade dos valores em relaçao ao pgto?
         for (ReservaQuarto reservaQuarto : quartos) {
             Quarto quarto = reservaQuarto.getQuarto();
             valorHosp += (quarto.getValorQuarto().getVl_preco_quarto());

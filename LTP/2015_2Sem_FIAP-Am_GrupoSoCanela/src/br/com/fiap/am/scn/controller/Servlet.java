@@ -55,8 +55,13 @@ public class Servlet extends HttpServlet {
                 e.printStackTrace();
             }
         } else if (request.getParameter("metodo").contains("confirmarCheckout")) {
-            // todo chamar o metodo que finaliza o checkout
-        }
+                try {
+                    finalizarCheckout(request, response);
+                } catch (Excecao excecao) {
+                    excecao.printStackTrace();
+                }
+
+            }
 
     }
 
@@ -75,10 +80,10 @@ public class Servlet extends HttpServlet {
         reserva.setDtInicioReserva(mudaData(reserva.getDtInicioReserva()));
         reserva.setDtFimReserva(mudaData(reserva.getDtFimReserva()));
         reserva.getCliente().setDtNascimento(mudaData(reserva.getCliente().getDtNascimento()));
+
         request.setAttribute("reserva", reserva);
         request.setAttribute("cliente", cliente);
         request.setAttribute("quarto", quarto);
-
 //        Cliente idCliente = clienteDAO.getClienteCPF(Integer.parseInt(request.getParameter("cpf")));
 //        request.setAttribute("cliente", idCliente);
 
@@ -107,7 +112,6 @@ public class Servlet extends HttpServlet {
 //        new HospedagemDAO().confirmHosp(hospedagem);
 //
 //        request.setAttribute("hospedagem", hospedagem);
-
         request.getRequestDispatcher("checkin.jsp").forward(request, response);
 
     }
@@ -143,6 +147,8 @@ public class Servlet extends HttpServlet {
 
         new HospedagemBO().confirmHosp(hospedagem);
 
+        request.getRequestDispatcher("resultado.jsp").forward(request,response);
+
 
     }
 
@@ -153,6 +159,7 @@ public class Servlet extends HttpServlet {
         Pagamento pagamento = new Pagamento();
 
         Hospedagem hospedagem = new HospedagemDAO().getHospedagem(Integer.parseInt("cd_hospedagem"));
+
         request.setAttribute("hospedagem", hospedagem);
         request.setAttribute("quarto", quarto);
         request.setAttribute("cliente", cliente);
@@ -160,4 +167,11 @@ public class Servlet extends HttpServlet {
 
         request.getRequestDispatcher("checkout.jsp").forward(request,response);
     }
+
+    public void finalizarCheckout(HttpServletRequest request,HttpServletResponse response) throws Excecao, ServletException, IOException {
+
+        request.getRequestDispatcher("resultado.jsp").forward(request,response);
+
+    }
+
 }

@@ -18,7 +18,7 @@ import br.com.fiap.am.scn.exception.Excecao;
 public class PessoaBO {
 
     public String cadastrarPessoa(Pessoa pessoa) throws Excecao {
-        //TODO Verificação de tamanho da String no front!
+
         pessoa.setNome(pessoa.getNome().toUpperCase());
         return new PessoaDAO().cadastrarPessoa(pessoa);
     }
