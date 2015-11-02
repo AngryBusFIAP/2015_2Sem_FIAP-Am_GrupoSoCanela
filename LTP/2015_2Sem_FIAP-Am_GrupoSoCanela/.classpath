@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tomcat 8.0.24"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSTL"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jtds-1.2.5"/>
+	<classpathentry kind="output" path="out/production/2015_2Sem_FIAP-Am_GrupoSoCanela"/>
+</classpath>

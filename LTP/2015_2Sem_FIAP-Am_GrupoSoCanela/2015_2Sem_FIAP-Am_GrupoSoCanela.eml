@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/2015_2Sem_FIAP-Am_GrupoSoCanela"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/.idea"/>
+	</contentEntry>
+	<lib name="Tomcat 8.0.24" scope="PROVIDED"/>
+	<levels>
+		<level name="Tomcat 8.0.24" value="application_server_libraries"/>
+	</levels>
+</component>
